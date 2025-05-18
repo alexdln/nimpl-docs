@@ -58,7 +58,7 @@ import { buildConfig } from '@nimpl/config/build-config';
 const config = buildConfig;
 ```
 
-Before using this config, [additional setup](https://nimpl.dev/config#app-configuration) is required
+Before using this config, [additional setup](https://nimpl.dev/docs/config#app-configuration) is required
 
 **postbuild**
 
@@ -72,7 +72,7 @@ import { postbuildConfig } from '@nimpl/config/postbuild-config';
 const config = postbuildConfig;
 ```
 
-Before using this config, [additional setup](https://nimpl.dev/config#app-configuration) is required
+Before using this config, [additional setup](https://nimpl.dev/docs/config#app-configuration) is required
 
 **runtime**
 
@@ -91,7 +91,7 @@ if (!config) return <p>Loading...</p>
 // ...
 ```
 
-Before using this config, [additional setup](https://nimpl.dev/config#app-configuration) is required
+Before using this config, [additional setup](https://nimpl.dev/docs/config#app-configuration) is required
 
 ## Structure
 
@@ -160,7 +160,7 @@ You can also create this file manually:
 
 ```ts filename="nimpl-config.d.ts"
 // NOTE: This file should not be edited
-// see https://nimpl.dev/config/configuration#typescript for more information.
+// see https://nimpl.dev/docs/config#typescript for more information.
 
 declare module "@nimpl/config/use-runtime-config" {
     declare const useRuntimeConfig: () => typeof import('./config/runtime/default');
