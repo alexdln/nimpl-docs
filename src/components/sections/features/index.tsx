@@ -1,6 +1,6 @@
-import { Container } from 'robindoc/lib/components/ui/container';
+import { Container } from "robindoc/lib/components/ui/container";
 
-import './features.scss';
+import "./features.scss";
 
 export const Features = () => (
     <section className="features" id="features">
@@ -63,4 +63,4 @@ export const Features = () => (
             </div>
         </Container>
     </section>
-)
+);

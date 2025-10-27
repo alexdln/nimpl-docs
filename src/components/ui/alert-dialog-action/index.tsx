@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 import { useDialogAction } from "top-layer/dialog";
 
@@ -9,14 +9,11 @@ export interface AlertDialogActionProps {
 }
 
 export const AlertDialogAction: React.FC<AlertDialogActionProps> = ({ title }) => {
-    const { openDialog } = useDialogAction('alert');
+    const { openDialog } = useDialogAction("alert");
 
     return (
-        <button
-            className="alert-dialog-action"
-            onClick={() => openDialog('Base Alert Dialog')}
-        >
+        <button className="alert-dialog-action" onClick={() => openDialog("Base Alert Dialog")}>
             {title}
         </button>
-    )
-}
+    );
+};

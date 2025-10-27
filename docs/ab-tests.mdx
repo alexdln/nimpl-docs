@@ -1,5 +1,5 @@
 ---
-title: 'ab-tests docs'
+title: "ab-tests docs"
 description: "@nimpl/ab-tests - a package for conducting A/B tests on a website using middleware. The package's API is inspired by the familiar APIs from next.js"
 previewName: ab-tests-docs
 ---
@@ -13,6 +13,7 @@ A package for conducting A/B tests on a website using middleware. The package's 
 ## Installation
 
 **Using npm:**
+
 ```sh npm2yarn copy
 npm i @nimpl/ab-tests
 ```
@@ -21,43 +22,43 @@ npm i @nimpl/ab-tests
 
 1. The middleware will find a suitable test for which the request will match the given instructions.
 
-1. If the test is found, a `nimpl_ab` cookie will be added with a session lifetime (*if `cookieLifeTime` is set - with a lifetime specified in this option*).
+1. If the test is found, a `nimpl_ab` cookie will be added with a session lifetime (_if `cookieLifeTime` is set - with a lifetime specified in this option_).
 
-1. Upon repeated requests, it will be checked whether the user still matches the test that was previously passed (*considering the `ignoreOnNextRequests` option*).
-If yes - the user will see the previously dropped version, otherwise - will try to participate in other tests.
+1. Upon repeated requests, it will be checked whether the user still matches the test that was previously passed (_considering the `ignoreOnNextRequests` option_).
+   If yes - the user will see the previously dropped version, otherwise - will try to participate in other tests.
 
 **Important**
 
 If `cookieLifeTime` is not set - the user may not stop being a participant in the A/B test after closing the tab or browser.
 
-*A session may not end even after closing the browser and rebooting the system, depending on the browser and its settings.*
+_A session may not end even after closing the browser and rebooting the system, depending on the browser and its settings._
 
 ## Configuration
 
 To start A/B testing, you need to create middleware by calling the createMiddleware function.
 
-The function needs to be passed a list of tests (`tests`) and the life time of the results cookie (`cookieLifeTime`, *in seconds*):
+The function needs to be passed a list of tests (`tests`) and the life time of the results cookie (`cookieLifeTime`, _in seconds_):
 
 ```ts filename="middleware.ts"
-import { type Test } from '@nimpl/ab-tests/dist/lib/types/tests';
-import { createMiddleware } from '@nimpl/ab-tests';
+import { type Test } from "@nimpl/ab-tests/dist/lib/types/tests";
+import { createMiddleware } from "@nimpl/ab-tests";
 
 const tests: Test[] = [
   {
-    id: 'some-id',
-    source: '/',
+    id: "some-id",
+    source: "/",
     variants: [
       {
         weight: 0.5,
-        destination: '/'
+        destination: "/",
       },
       {
         weight: 0.5,
-        destination: '/page-2'
-      }
+        destination: "/page-2",
+      },
     ],
-  }
-]
+  },
+];
 
 export const middleware = createMiddleware({ tests, cookieLifeTime: 72400 });
 ```
@@ -70,11 +71,11 @@ Each test is described by the following keys:
 
 `source` - the path the test will follow;
 
-`has` - array of rules that should be fulfilled for the user's request (*more about [rule options](#rule-options)*);
+`has` - array of rules that should be fulfilled for the user's request (_more about [rule options](#rule-options)_);
 
-`missing` - array of rules that *should not* be fulfilled for the user's request (*more about [rule options](#rule-options)*);
+`missing` - array of rules that _should not_ be fulfilled for the user's request (_more about [rule options](#rule-options)_);
 
-`variants` - array of possible variants of the current test (*more about [variants](#variant)*).
+`variants` - array of possible variants of the current test (_more about [variants](#variant)_).
 
 ### Rule options
 
@@ -98,7 +99,7 @@ Each option is an object with keys:
 
 `destination` - the path where the option is located;
 
-`weight` - probability of the option being given (*from 0 to 1*);
+`weight` - probability of the option being given (_from 0 to 1_);
 
 `type` - variant type - `rewrite` or `redirect`. Accordingly, when the option is triggered, either a rewrite will be performed or a redirect to the specified page will occur;
 
@@ -108,7 +109,7 @@ Each option is an object with keys:
 
 Rules, just like in next.js, support dynamic data.
 
-But, unlike next.js, this only works through regular expression variables (*f.e.* `(?<param>.*)`).
+But, unlike next.js, this only works through regular expression variables (_f.e._ `(?<param>.*)`).
 
 Dynamic data can be obtained from `source` or from `value` of the rules. Then they can be embedded in destination tests:
 

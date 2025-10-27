@@ -8,23 +8,23 @@ title: "Nimpl News 06/2024 | nimpl/blog"
 
 In `get-params`, you can now pass options for obtaining parameters in specific conditions:
 
-`ignoreDifferenceError` - In case of error or segments difference, the getter will return null (*e.g., `/_not-found` could be at `/it/removed-page` and it would not have any params*)
+`ignoreDifferenceError` - In case of error or segments difference, the getter will return null (_e.g., `/_not-found` could be at `/it/removed-page` and it would not have any params_)
 
 `pathname` - Custom pathname (e.g., `["/example/custom"]`). Usable for rewritten pages in SSR or custom functions
 
 `pagePaths` - Custom pagePaths list (e.g., `["/example/[slug]/page"]`). Usable for rewritten pages in SSR or custom functions
 
-https://github.com/vordgi/nimpl-getters/pull/80
+https://github.com/alexdln/nimpl-getters/pull/80
 
 ## @nimpl/classnames-minifier improvements
 
-The package synchronizes with the next.js cache. However, under unknown circumstances, there is a possibility that the cache in next.js will not update when the package expects it to. To avoid this, an experimental function for limiting copies has been added (https://github.com/vordgi/classnames-minifier/issues/35, https://github.com/vordgi/nimpl-classnames-minifier/issues/102).
+The package synchronizes with the next.js cache. However, under unknown circumstances, there is a possibility that the cache in next.js will not update when the package expects it to. To avoid this, an experimental function for limiting copies has been added (https://github.com/alexdln/classnames-minifier/issues/35, https://github.com/alexdln/nimpl-classnames-minifier/issues/102).
 
 ```js
 module.exports = async (phase) => {
   const classnamesMinifierWrapper = classnamesMinifier({
     experimental: {
-      freedNamesPolicy: 'block',
+      freedNamesPolicy: "block",
     },
   });
   return classnamesMinifierWrapper(nextConfig);
@@ -33,19 +33,19 @@ module.exports = async (phase) => {
 
 If you have encountered such situations - please write them as a package issue with a description of how to reproduce.
 
-## @nimpl/middleware-chain improvements
+## @nimpl/proxy-chain improvements
 
-Now each chain element supports path rules for which it should work https://github.com/vordgi/nimpl-middleware-chain/issues/15
+Now each chain element supports path rules for which it should work https://github.com/alexdln/nimpl-proxy-chain/issues/15
 
 ```js
 export default chain([
-    [intlMiddleware, { exclude: /^\/private(\/.*)?$/ }],
-    () => {
-        const next = new NextResponse();
-        next.cookies.set("custom-cookie", Date.now().toString());
-        return next;
-    },
-    [nextAuth, { include: /^\/private(\/.*)?$/ }],
+  [intlMiddleware, { exclude: /^\/private(\/.*)?$/ }],
+  () => {
+    const next = new NextResponse();
+    next.cookies.set("custom-cookie", Date.now().toString());
+    return next;
+  },
+  [nextAuth, { include: /^\/private(\/.*)?$/ }],
 ]);
 ```
 
@@ -56,28 +56,28 @@ https://nimpl.dev/docs/router
 Edge router for next.js apps. Allows you to configure rewrites, redirects, i18n and basePath at the middleware level instead of next.config.js.
 
 ```js
-import { createMiddleware } from '@nimpl/router';
- 
+import { createMiddleware } from "@nimpl/router";
+
 export const middleware = createMiddleware({
-    redirects: [
-        {
-            source: '/old',
-            destination: '/',
-            permanent: false,
-        },
-    ],
-    rewrites: [
-        {
-            source: '/home',
-            destination: '/',
-            locale: false,
-        },
-    ],
-    basePath: '/doc',
-    i18n: {
-        defaultLocale: 'en',
-        locales: ['en', 'de'],
+  redirects: [
+    {
+      source: "/old",
+      destination: "/",
+      permanent: false,
     },
+  ],
+  rewrites: [
+    {
+      source: "/home",
+      destination: "/",
+      locale: false,
+    },
+  ],
+  basePath: "/doc",
+  i18n: {
+    defaultLocale: "en",
+    locales: ["en", "de"],
+  },
 });
 ```
 
@@ -87,15 +87,15 @@ Updated service homepage - [inio.nimpl.dev](http://inio.nimpl.dev/)
 
 Many improvements to make the editor even faster, more convenient, and more useful
 
-[ni-105 support multiple patterns](https://github.com/vordgi/nimpl-inio/pull/106)
+[ni-105 support multiple patterns](https://github.com/alexdln/nimpl-inio/pull/106)
 
-[ni-98 support indent rules](https://github.com/vordgi/nimpl-inio/pull/99)
+[ni-98 support indent rules](https://github.com/alexdln/nimpl-inio/pull/99)
 
-[ni-79 pagination and count on page logic](https://github.com/vordgi/nimpl-inio/pull/80)
+[ni-79 pagination and count on page logic](https://github.com/alexdln/nimpl-inio/pull/80)
 
-[ni-56 add missings filter](https://github.com/vordgi/nimpl-inio/pull/75)
+[ni-56 add missings filter](https://github.com/alexdln/nimpl-inio/pull/75)
 
-[ni-68 limit tool scope](https://github.com/vordgi/nimpl-inio/pull/69)
+[ni-68 limit tool scope](https://github.com/alexdln/nimpl-inio/pull/69)
 
 Thanks to [@zakidze](https://github.com/zakidze) for many new ideas!
 
@@ -103,7 +103,7 @@ Thanks to [@zakidze](https://github.com/zakidze) for many new ideas!
 
 Improvements in documentation:
 
-* [Describe nimpl-router](https://github.com/vordgi/nimpl-docs/issues/122);
-* [Update middleware-chain docs](https://github.com/vordgi/nimpl-docs/issues/119);
-* [Change link to nimpl/inio](https://github.com/vordgi/nimpl-docs/issues/117);
-* [Update get-params docs](https://github.com/vordgi/nimpl-docs/issues/116);
+- [Describe nimpl-router](https://github.com/alexdln/nimpl-docs/issues/122);
+- [Update proxy-chain docs](https://github.com/alexdln/nimpl-docs/issues/119);
+- [Change link to nimpl/inio](https://github.com/alexdln/nimpl-docs/issues/117);
+- [Update get-params docs](https://github.com/alexdln/nimpl-docs/issues/116);

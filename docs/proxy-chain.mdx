@@ -1,0 +1,209 @@
+---
+title: "proxy-chain docs"
+description: "@nimpl/proxy-chain allows you to create a chain of **native Next.js proxies** without any modifications to your or external proxy functions"
+previewName: proxy-chain-docs
+---
+
+# @nimpl/proxy-chain
+
+<PackageLinks npmName="@nimpl/proxy-chain" githubName="nimpl-proxy-chain" />
+
+The package allows you to create a chain of **native Next.js proxies** without any modifications to your or external proxy functions (_i.e., you can add any ready-made proxy to the chain_)
+
+```ts filename="proxy.ts"
+export default chain([intlMiddleware, authMiddleware, customMiddleware]);
+```
+
+## Installation
+
+**Using npm:**
+
+```sh npm2yarn copy
+npm i @nimpl/proxy-chain
+```
+
+## Compatibility
+
+The utility is fully compatible with **all versions of Next.js** that support middleware/proxy.
+
+If you're using a version **below 16.0.0**, create a `middleware.ts` instead of `proxy.ts` file:
+
+```ts filename="middleware.ts"
+import { chain } from "@nimpl/proxy-chain";
+import { NextRequest, NextResponse, NextFetchEvent } from "next/types";
+
+export const middleware = chain<NextRequest, NextResponse, NextFetchEvent>([
+  // ...
+]);
+```
+
+> [!TIP]
+> Explicitly pass the types NextRequest, NextResponse, and NextFetchEvent as generics to the chain function to ensure proper type safety and autocompletion.
+
+## How it works
+
+The proxy-chain processes the passed proxies in turn.
+
+Each proxy is called with a modified **original** request argument. The only difference is the enrichment with a `summary` key with all accumulated data in the format:
+
+```ts
+interface Summary {
+  type: NextType;
+  destination?: string | NextURL;
+  body?: ReadableStream<Uint8Array>;
+  cookies: Map<string, ResponseCookie>;
+  headers: Headers;
+  requestHeaders: Headers;
+  status: number;
+  statusText?: string;
+}
+```
+
+The `summary` is readonly, i.e. it cannot be modified. All changes are made only through the native next.js API (_by returning `NextResponse` with necessary additions_).
+
+## Motivation
+
+All existing solutions work through their own APIs - made under the style of express or in their own vision. They are useful, well implemented, and convenient. But only in cases where you can update every used proxy.
+
+However, there are many situations where you need to add already prepared solutions. Usually, in the issues of these solutions, you can find "support to add a chain package A, working with chain package B".
+
+This package follows a plug and play format. In the best traditions of the previous next.js.
+
+This is not Koa and not Express, this is a package for next.js, in its unique style, in the format of its API.
+
+## Usage
+
+The chain takes an array of proxy. Upon request, it will sequentially process each proxy and return a NextResponse with the collected data ([summary](#how-it-works)).
+
+This could be a series of your custom proxies:
+
+```ts filename="proxy.ts"
+import { NextResponse, type NextRequest } from "next/server";
+import { chain } from "@nimpl/proxy-chain";
+
+export const proxy = chain([
+  async (request: NextRequest) => {
+    const next = NextResponse.next({
+      headers: new Headers({ "x-pathname": request.nextUrl.pathname }),
+    });
+    next.cookies.set("test", "cookie", { domain: "localhost", secure: true });
+    return next;
+  },
+  async (request: NextRequest) => {
+    return NextResponse.rewrite(new URL("/rewritten", request.url));
+  },
+]);
+```
+
+And a series of ready-made solutions:
+
+```ts filename="proxy.ts"
+import { default as authMiddleware } from "next-auth/proxy";
+import createMiddleware from "next-intl/proxy";
+import { chain } from "@nimpl/proxy-chain";
+
+const intlMiddleware = createMiddleware({
+  locales: ["en", "dk"],
+  defaultLocale: "en",
+});
+
+export default chain([intlMiddleware, authMiddleware]);
+```
+
+> [!IMPORTANT] > `NextResponse.rewrite`, `NextResponse.redirect`, and `NextResponse.json` do not terminate the execution of the chain. If the subsequent proxy of the chain returns a new type - the chain will continue execution with new data. At the same time, a message of the following type will be output to the console:
+> `http://localhost:3000/ (none) -> http://localhost:3000/rewritten (rewrite)`
+
+This is done so that it is possible to pass several ready-made solutions (such as for example `next-auth` and `next-intl`)
+
+You can stop the execution of the chain using `FinalNextResponse`.
+
+## Item Rules
+
+In some situations, you may need to run certain chain proxies only for specified paths.
+
+In this situation, you can specify item rules. Simply change the item to an array and pass the rules as the second array item.
+
+You can specify `include` and `exclude` rules:
+
+```ts filename="proxy.ts"
+export default chain([
+  [intlMiddleware, { exclude: /^\/private(\/.*)?$/ }],
+  () => {
+    const next = new NextResponse();
+    next.cookies.set("custom-cookie", Date.now().toString());
+    return next;
+  },
+  [nextAuth, { include: /^\/private(\/.*)?$/ }],
+]);
+```
+
+## FinalNextResponse
+
+If you wish, you can embed your proxy between the ready ones, where to stop further execution with the help of returning `FinalNextResponse`, for example if `summary.type === 'redirect'`
+
+For instance, in the case with `next-intl` + `next-auth`, we may not want authorization handling until the redirect (_because after the redirect, the proxy will be processed again_):
+
+```ts filename="proxy.ts"
+export default chain([
+  intlMiddleware,
+  (req) => {
+    if (req.summary.type === "redirect") return FinalNextResponse.next();
+  },
+  authMiddleware,
+]);
+```
+
+## Configuration
+
+### Custom logger
+
+By default, the package logs every change during the chain execution.
+This is important for understanding unnecessary changes or tracking the request processing.
+
+You can modify this behavior by passing an object with the `logger` option as the second argument to the chain:
+
+```ts
+export default chain([intlMiddleware, authMiddleware], {
+  logger: Logger,
+});
+```
+
+To completely disable the package's internal logs, pass `logger: null` or `logger: false`.
+
+You can also pass a custom logger:
+
+```ts
+export default chain(
+    [
+        intlMiddleware,
+        authMiddleware,
+    ],
+    {
+        logger: {
+            log: (msg) => console.log(`product-proxy-chain: ${msg}`),
+            warn: (msg) => console.warn(`product-proxy-chain: ${msg}`),
+            error: (msg) => console.error(`product-proxy-chain: ${msg}`),
+        },,
+    }
+);
+```
+
+> [!TIP]
+> This option does **not** affect global console classes or logs.  
+> It only applies to the package's **internal logs** (e.g., `Changing destination between proxies...`).
+
+## Examples
+
+- [Base example](https://github.com/alexdln/nimpl-proxy-chain/tree/main/examples/base).
+- [next-auth + next-intl example](https://github.com/alexdln/nimpl-proxy-chain/tree/main/examples/auth-intl).
+- [next-auth5 + next-intl example](https://github.com/alexdln/nimpl-proxy-chain/tree/main/examples/auth5-intl).
+
+## Development
+
+Read about working on the package and making changes on the [contribution page](/contribution)
+
+## Additional
+
+Please consider giving a star if you like it, it shows that the package is useful and helps me continue work on this and other packages.
+
+Create issues with wishes, ideas, difficulties, etc. All of them will definitely be considered and thought over.

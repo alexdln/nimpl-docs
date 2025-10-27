@@ -4,7 +4,7 @@ import { PackageLinks } from "../../../components/ui/package-links";
 
 const ContributionPage = async ({ params }: { params: Promise<{ segments?: string[] }> }) => {
     const { segments = [] } = await params;
-    const pathname = '/contribution/' + segments.join('/');
+    const pathname = "/contribution/" + segments.join("/");
 
     return (
         <Page
@@ -14,15 +14,15 @@ const ContributionPage = async ({ params }: { params: Promise<{ segments?: strin
                 PackageLinks,
             }}
             config={{
-                publicDirs: ['public']
+                publicDirs: ["public"],
             }}
         />
     );
-}
+};
 
 export const generateMetadata = async ({ params }: { params: Promise<{ segments?: string[] }> }) => {
     const { segments = [] } = await params;
-    const pathname = ['/contribution', ...segments].join('/');
+    const pathname = ["/contribution", ...segments].join("/");
     const metadata = await getMetadata(pathname);
 
     return {
@@ -34,8 +34,8 @@ export const generateMetadata = async ({ params }: { params: Promise<{ segments?
 };
 
 export const generateStaticParams = async () => {
-    const staticParams = await getStaticParams('/contribution');
+    const staticParams = await getStaticParams("/contribution");
     return staticParams;
-}
+};
 
 export default ContributionPage;

@@ -1,6 +1,6 @@
 ---
-title: 'cache-in-memory docs'
-description: '@nimpl/cache-in-memory - base cacheHandler for next.js, which cache data in-memory'
+title: "cache-in-memory docs"
+description: "@nimpl/cache-in-memory - base cacheHandler for next.js, which cache data in-memory"
 previewName: cache-in-memory-docs
 ---
 
@@ -15,6 +15,7 @@ Base cacheHandler for next.js, which cache data in-memory
 ## Installation
 
 **Using npm:**
+
 ```sh npm2yarn copy
 npm i @nimpl/cache-in-memory
 ```
@@ -26,17 +27,17 @@ You can use `cacheHandler` by specifying the path to it in the application confi
 ```js
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    cacheMaxMemorySize: 0,
-    cacheHandler: require.resolve('@nimpl/cache-in-memory'),
+  cacheMaxMemorySize: 0,
+  cacheHandler: require.resolve("@nimpl/cache-in-memory"),
 };
 ```
 
-However, it is recommended to use it together with [@nimpl/cache-adapter](https://nimpl.dev/docs/cache-adapter). 
+However, it is recommended to use it together with [@nimpl/cache-adapter](https://nimpl.dev/docs/cache-adapter).
 The package will allow you to expand the capabilities of `cacheHandler` and also reuse the cache between different application instances.
 
 ## Examples
 
-[Base example](https://github.com/vordgi/nimpl-cache/tree/main/example).
+[Base example](https://github.com/alexdln/nimpl-cache/tree/main/example).
 
 ## Development
 

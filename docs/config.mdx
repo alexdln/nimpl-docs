@@ -1,6 +1,6 @@
 ---
-title: 'config docs'
-description: '@nimpl/config package adding support for configuration for each possible next.js environment (build, server, client, and edge)'
+title: "config docs"
+description: "@nimpl/config package adding support for configuration for each possible next.js environment (build, server, client, and edge)"
 previewName: config-docs
 ---
 
@@ -10,7 +10,7 @@ previewName: config-docs
 
 (Former [next-impl-config](https://www.npmjs.com/package/next-impl-config))
 
-The package adding support for configuration for each possible next.js environment (*build, server, client, and edge*)
+The package adding support for configuration for each possible next.js environment (_build, server, client, and edge_)
 
 ## Motivation
 
@@ -23,14 +23,13 @@ And here are a few downsides:
 
 On the other hand, @nimpl/config offers support for 4 different configuration options for your applications.
 
-Another important advantage of @nimpl/config is that it supports functions (*synchronous and asynchronous*) and will successfully merge their result.
+Another important advantage of @nimpl/config is that it supports functions (_synchronous and asynchronous_) and will successfully merge their result.
 
 ## Installation
 
 ```sh npm2yarn copy
 npm i @nimpl/config
 ```
-
 
 ## Usage
 
@@ -41,7 +40,7 @@ The config is generated at runtime (based on the environment conditions at runti
 Recommended for API routes or in force-dynamic mode in server components.
 
 ```jsx
-import { serverConfig } from '@nimpl/config/server-config';
+import { serverConfig } from "@nimpl/config/server-config";
 // ...
 const config = await serverConfig;
 ```
@@ -53,7 +52,7 @@ The config is generated at build time (based on the environment conditions at bu
 Recommended for components that don't depend on the runtime environment.
 
 ```jsx
-import { buildConfig } from '@nimpl/config/build-config';
+import { buildConfig } from "@nimpl/config/build-config";
 // ...
 const config = buildConfig;
 ```
@@ -67,7 +66,7 @@ During the build process, configs are generated for each possible environment (b
 Recommended for middleware.
 
 ```jsx
-import { postbuildConfig } from '@nimpl/config/postbuild-config';
+import { postbuildConfig } from "@nimpl/config/postbuild-config";
 // ...
 const config = postbuildConfig;
 ```
@@ -81,13 +80,13 @@ An API route is created that generates the config at the time of the request (ba
 Recommended for components that depend on the runtime environment.
 
 ```jsx
-'client';
+"client";
 
-import useRuntimeConfig from '@nimpl/config/use-runtime-config';
+import useRuntimeConfig from "@nimpl/config/use-runtime-config";
 // ...
 const config = useRuntimeConfig();
 
-if (!config) return <p>Loading...</p>
+if (!config) return <p>Loading...</p>;
 // ...
 ```
 
@@ -127,27 +126,30 @@ The lower the config variant is in the list, the higher its priority.
 The default Environment-dependent config is the config for the current `NODE_ENV` or `NIMPL_CONFIG_ENV`. If you want to use a config for specific env, pass it to `nimplConfig`
 
 ```js filename="next.config.js"
-const { default: nimplConfig } = require('@nimpl/config/with-nimpl-config');
+const { default: nimplConfig } = require("@nimpl/config/with-nimpl-config");
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   // ...
 };
 
-module.exports = nimplConfig({ envs: ['development', 'staging', 'production'], targetEnv: 'development' })(nextConfig);
+module.exports = nimplConfig({
+  envs: ["development", "staging", "production"],
+  targetEnv: "development",
+})(nextConfig);
 ```
 
 ### Custom config folder
 
 ```js filename="next.config.js"
-const { default: nimplConfig } = require('@nimpl/config/with-nimpl-config');
+const { default: nimplConfig } = require("@nimpl/config/with-nimpl-config");
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   // ...
 };
 
-module.exports = nimplConfig({ folder: 'custom-config-folder' })(nextConfig);
+module.exports = nimplConfig({ folder: "custom-config-folder" })(nextConfig);
 ```
 
 ### Typescript
@@ -163,20 +165,22 @@ You can also create this file manually:
 // see https://nimpl.dev/docs/config#typescript for more information.
 
 declare module "@nimpl/config/use-runtime-config" {
-    declare const useRuntimeConfig: () => typeof import('./config/runtime/default');
-    export default useRuntimeConfig;
+  declare const useRuntimeConfig: () => typeof import("./config/runtime/default");
+  export default useRuntimeConfig;
 }
 
 declare module "@nimpl/config/build-config" {
-    export declare const buildConfig: typeof import('./config/build/default');
+  export declare const buildConfig: typeof import("./config/build/default");
 }
 
 declare module "@nimpl/config/postbuild-config" {
-    export declare const postbuildConfig: typeof import('./config/postbuild/default');
+  export declare const postbuildConfig: typeof import("./config/postbuild/default");
 }
 
 declare module "@nimpl/config/server-config" {
-    export declare const serverConfig: Promise<typeof import('./config/server/default')>;
+  export declare const serverConfig: Promise<
+    typeof import("./config/server/default")
+  >;
 }
 ```
 
@@ -191,7 +195,7 @@ This type doesn't require any additional configuration.
 Next.js config needs to be wrapped with `nimplConfig`.
 
 ```jsx filename="next.config.js"
-const { default: nimplConfig } = require('@nimpl/config/with-nimpl-config');
+const { default: nimplConfig } = require("@nimpl/config/with-nimpl-config");
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -206,14 +210,16 @@ module.exports = nimplConfig()(nextConfig);
 Possible environments need to be passed to `nimplConfig`.
 
 ```js filename="next.config.js"
-const { default: nimplConfig } = require('@nimpl/config/with-nimpl-config');
+const { default: nimplConfig } = require("@nimpl/config/with-nimpl-config");
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   // ...
 };
 
-module.exports = nimplConfig({ envs: ['development', 'staging', 'production'] })(nextConfig);
+module.exports = nimplConfig({
+  envs: ["development", "staging", "production"],
+})(nextConfig);
 ```
 
 **runtime**
@@ -221,32 +227,32 @@ module.exports = nimplConfig({ envs: ['development', 'staging', 'production'] })
 First, create an API route.
 
 ```jsx filename="app/api/config/route.tsx"
-export { runtimeConfigApi as GET } from '@nimpl/config/runtime-config-api';
+export { runtimeConfigApi as GET } from "@nimpl/config/runtime-config-api";
 
-export const dynamic = 'force-dynamic';
+export const dynamic = "force-dynamic";
 ```
 
 <Hint>
-It is important to specify `force-dynamic`, otherwise next.js will compile this API route as static and it will not provide actual data for the environment
+  It is important to specify `force-dynamic`, otherwise next.js will compile
+  this API route as static and it will not provide actual data for the
+  environment
 </Hint>
 
 Wrap the application with the Provider.
 
 ```jsx filename="app/layout.tsx"
-import RuntimeConfigProvider from '@nimpl/config/runtime-config-provider';
+import RuntimeConfigProvider from "@nimpl/config/runtime-config-provider";
 
 export default function RootLayout() {
   return (
-    <RuntimeConfigProvider apiPath='/api/config'>
-      // ...
-    </RuntimeConfigProvider>
+    <RuntimeConfigProvider apiPath="/api/config">// ...</RuntimeConfigProvider>
   );
 }
 ```
 
 ## Examples
 
-[Base example](https://github.com/vordgi/nimpl-config/tree/main/example).
+[Base example](https://github.com/alexdln/nimpl-config/tree/main/example).
 
 ## Development
 

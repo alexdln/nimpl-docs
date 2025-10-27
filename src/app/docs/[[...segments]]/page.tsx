@@ -5,9 +5,9 @@ import { ToastAction } from "@/components/ui/toast-action";
 
 import { Page, getMetadata, getStaticParams } from "../robindoc";
 
-const DocsPage =  async ({ params }: { params: Promise<{ segments?: string[] }> }) => {
+const DocsPage = async ({ params }: { params: Promise<{ segments?: string[] }> }) => {
     const { segments = [] } = await params;
-    const pathname = '/docs/' + segments.join('/');
+    const pathname = "/docs/" + segments.join("/");
 
     return (
         <Page
@@ -19,15 +19,15 @@ const DocsPage =  async ({ params }: { params: Promise<{ segments?: string[] }> 
                 AlertDialogAction,
             }}
             config={{
-                publicDirs: ['public']
+                publicDirs: ["public"],
             }}
         />
     );
-}
+};
 
 export const generateMetadata = async ({ params }: { params: Promise<{ segments?: string[] }> }) => {
     const { segments = [] } = await params;
-    const pathname = ['/docs', ...segments].join('/');
+    const pathname = ["/docs", ...segments].join("/");
     const metadata = await getMetadata(pathname);
 
     return {
@@ -39,8 +39,8 @@ export const generateMetadata = async ({ params }: { params: Promise<{ segments?
 };
 
 export const generateStaticParams = async () => {
-    const staticParams = await getStaticParams('/docs');
+    const staticParams = await getStaticParams("/docs");
     return staticParams;
-}
+};
 
 export default DocsPage;

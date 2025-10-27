@@ -1,6 +1,6 @@
 ---
-title: 'i18n docs'
-description: 'Introduction for @nimpl/i18n - library designed primarily with server components in mind and maximum optimization for next.js and RSC'
+title: "i18n docs"
+description: "Introduction for @nimpl/i18n - library designed primarily with server components in mind and maximum optimization for next.js and RSC"
 previewName: i18n-docs
 ---
 
@@ -31,36 +31,40 @@ This library is an attempt to create a highly optimized solution exclusively usi
 Server getter for adding translations to React Server Components and outside React DOM.
 
 ```tsx
-import getTranslation from '@nimpl/i18n/getTranslation';
+import getTranslation from "@nimpl/i18n/getTranslation";
 
 const ServerComponent: React.FC = () => {
-    const { t } = getTranslation();
+  const { t } = getTranslation();
 
-    return (
-        <div>
-            {/* Welcome to Next Translation */}
-            {t('header.nav.home')}
-        </div>
-    )
-}
+  return (
+    <div>
+      {/* Welcome to Next Translation */}
+      {t("header.nav.home")}
+    </div>
+  );
+};
 ```
 
 You can also specify the desired language and translations will be added specifically for it:
 
 ```tsx
-const { t } = getTranslation({ language: 'fr' });
+const { t } = getTranslation({ language: "fr" });
 ```
 
 To add translations outside the React DOM, you can also use `getTranslation`, but always passing the desired language.
 
 ```tsx
-import createTranslation from '@nimpl/i18n/createTranslation'
+import createTranslation from "@nimpl/i18n/createTranslation";
 // ...
-export async function generateMetadata({ params }: { params: { lang: string } }) {
-    const { t } = await getTranslation({ language: params.lang });
-    return {
-        title: t('homePage.meta.title'),
-    }
+export async function generateMetadata({
+  params,
+}: {
+  params: { lang: string };
+}) {
+  const { t } = await getTranslation({ language: params.lang });
+  return {
+    title: t("homePage.meta.title"),
+  };
 }
 ```
 
@@ -70,13 +74,13 @@ Now you can pass a query there to inject variable strings inside translations. I
 
 ```tsx
 const Component: React.FC = () => {
-    return (
-        <div>
-            {/* Price starts from {{price}} */}
-            {t('pricing.tariffs.solo', { query: { price: '16.90' } })}
-        </div>
-    )
-}
+  return (
+    <div>
+      {/* Price starts from {{price}} */}
+      {t("pricing.tariffs.solo", { query: { price: "16.90" } })}
+    </div>
+  );
+};
 ```
 
 ### useTranslation
@@ -84,29 +88,31 @@ const Component: React.FC = () => {
 Hook for adding translations to React Client Components.
 
 <Hint>
-To use i18n on the client side, you need to set up the [I18nTransmitter](#i18ntransmitter)
+  To use i18n on the client side, you need to set up the
+  [I18nTransmitter](#i18ntransmitter)
 </Hint>
 
 ```tsx
 "use client";
 
-import useTranslation from '@nimpl/i18n/useTranslation';
+import useTranslation from "@nimpl/i18n/useTranslation";
 
 const ClientComponent: React.FC = () => {
-    const { t } = useTranslation();
+  const { t } = useTranslation();
 
-    return (
-        <div>
-            {/* Welcome to Next Translation */}
-            {t('header.nav.home')}
-        </div>
-    )
-}
+  return (
+    <div>
+      {/* Welcome to Next Translation */}
+      {t("header.nav.home")}
+    </div>
+  );
+};
 ```
 
 <Hint>
-The client hook and component, unlike the server ones, do not support language customization. 
-This is because translations are determined by server parents, as a result, the language is set in them.
+  The client hook and component, unlike the server ones, do not support language
+  customization. This is because translations are determined by server parents,
+  as a result, the language is set in them.
 </Hint>
 
 You can pass `opts` as the second argument of `t`.
@@ -115,13 +121,13 @@ Now you can pass a query there to inject variable strings inside translations.
 
 ```tsx
 const Component: React.FC = () => {
-    return (
-        <div>
-            {/* Price starts from ${{price}} */}
-            {t('pricing.tariffs.solo', { query: { price: '16.90' } })}
-        </div>
-    )
-}
+  return (
+    <div>
+      {/* Price starts from ${{price}} */}
+      {t("pricing.tariffs.solo", { query: { price: "16.90" } })}
+    </div>
+  );
+};
 ```
 
 ### I18nTransmitter
@@ -131,23 +137,25 @@ For client-side translations to work, translations are passed in parent server c
 The `I18nTransmitter` is used for this. It takes an array of keys to namespaces or specific keys.
 
 <Hint>
-It is recommended to set it at the top level of the route.
-However, in some cases (*for example in conditions for different sections*) it may be useful to add a transmitter in another place.
+  It is recommended to set it at the top level of the route. However, in some
+  cases (*for example in conditions for different sections*) it may be useful to
+  add a transmitter in another place.
 </Hint>
 
 ```tsx
-import I18nTransmitter from '@nimpl/i18n/I18nTransmitter';
-import ClientComponent from './ClientComponent';
+import I18nTransmitter from "@nimpl/i18n/I18nTransmitter";
+import ClientComponent from "./ClientComponent";
 
 const ServerComponent: React.FC = () => (
-    <I18nTransmitter terms={['header.nav']}>
-        <ClientComponent />
-    </I18nTransmitter>
-)
+  <I18nTransmitter terms={["header.nav"]}>
+    <ClientComponent />
+  </I18nTransmitter>
+);
 ```
 
 <Hint>
-Layout lives independently, so it needs to be wrapped in `I18nTransmitter` separately.
+  Layout lives independently, so it needs to be wrapped in `I18nTransmitter`
+  separately.
 </Hint>
 
 Also you can inject query to client terms on the server side. For example, when they depend on the server environment or when you get values from a database on the server.
@@ -155,20 +163,28 @@ Also you can inject query to client terms on the server side. For example, when 
 Just add an array value instead of a string in terms arr, where the second element will be the query object.
 
 ```tsx
-import I18nTransmitter from '@nimpl/i18n/I18nTransmitter';
-import ClientComponent from './ClientComponent';
+import I18nTransmitter from "@nimpl/i18n/I18nTransmitter";
+import ClientComponent from "./ClientComponent";
 
 const ServerComponent: React.FC = () => (
-    <I18nTransmitter terms={[['home.welcome', { stage: process.env.GITHUB_REF === 'main' ? 'production' : 'test' }]]}>
-        <ClientComponent />
-    </I18nTransmitter>
-)
+  <I18nTransmitter
+    terms={[
+      [
+        "home.welcome",
+        { stage: process.env.GITHUB_REF === "main" ? "production" : "test" },
+      ],
+    ]}
+  >
+    <ClientComponent />
+  </I18nTransmitter>
+);
 ```
 
 You can also specify the desired language and translations will be added specifically for it:
+
 ```tsx
-<I18nTransmitter terms={[['home.welcome']]} language="fr">
-    <ClientComponent />
+<I18nTransmitter terms={[["home.welcome"]]} language="fr">
+  <ClientComponent />
 </I18nTransmitter>
 ```
 
@@ -177,25 +193,23 @@ You can also specify the desired language and translations will be added specifi
 A component for adding complex translations in React Server Components. Unlike getter, it supports adding components inside translations.
 
 ```tsx
-import ServerTranslation from '@nimpl/i18n/ServerTranslation';
+import ServerTranslation from "@nimpl/i18n/ServerTranslation";
 
 const ServerComponent: React.FC = () => (
-    <ServerTranslation
-        term='intro.description' // We have {{number}} tariffs. Read more about pricings <link>special section</link>
-        components={{
-            link: <a href='#' />
-        }}
-        query={{ number: 5 }}
-    />
-)
+  <ServerTranslation
+    term="intro.description" // We have {{number}} tariffs. Read more about pricings <link>special section</link>
+    components={{
+      link: <a href="#" />,
+    }}
+    query={{ number: 5 }}
+  />
+);
 ```
 
 You can also specify the desired language and translations will be added specifically for it:
+
 ```tsx
-<ServerTranslation
-    term='intro.description'
-    language="fr"
-/>
+<ServerTranslation term="intro.description" language="fr" />
 ```
 
 ### ClientTranslation
@@ -205,22 +219,25 @@ A component for adding complex translations in React Client Components. Unlike h
 ```tsx
 "use client";
 
-import ClientTranslation from '@nimpl/i18n/ClientTranslation';
+import ClientTranslation from "@nimpl/i18n/ClientTranslation";
 
 const ClientComponent: React.FC = () => (
-    <ClientTranslation
-        term='intro.description' // We have {{number}} tariffs. Read more about pricings <link>special section</link>
-        components={{
-            link: <a href='#' />
-        }}
-        query={{ number: 5 }}
-    />
-)
+  <ClientTranslation
+    term="intro.description" // We have {{number}} tariffs. Read more about pricings <link>special section</link>
+    components={{
+      link: <a href="#" />,
+    }}
+    query={{ number: 5 }}
+  />
+);
 ```
 
 <Hint>
-The ClientTranslation and client hook [useTranslation](#usetranslation), unlike server [getTranslation](#gettranslation) and [ServerTranslation](#servertranslation), do not support language customization. 
-This is because translations are determined by server parents, as a result, and the language is fixed in them.
+  The ClientTranslation and client hook [useTranslation](#usetranslation),
+  unlike server [getTranslation](#gettranslation) and
+  [ServerTranslation](#servertranslation), do not support language
+  customization. This is because translations are determined by server parents,
+  as a result, and the language is fixed in them.
 </Hint>
 
 ## Configuration
@@ -234,13 +251,13 @@ const fs = require("fs/promises");
 
 /** @type {import('@nimpl/i18n/configuration/types').Config} */
 module.exports = {
-    load: async (language) => {
-        const data = await fs.readFile(`./translates/${language}.json`);
-        const dictionary = JSON.parse(data);
-        return dictionary;
-    },
-    getLanguage: async ({ params }) => params.language,
-    languages: ['en', 'de', 'fr'],
+  load: async (language) => {
+    const data = await fs.readFile(`./translates/${language}.json`);
+    const dictionary = JSON.parse(data);
+    return dictionary;
+  },
+  getLanguage: async ({ params }) => params.language,
+  languages: ["en", "de", "fr"],
 };
 ```
 
@@ -268,10 +285,10 @@ Array of allowed languages. Languages outside of this array will be ignored.
 
 If you can transfer the package configuration file to the server in such a way that it remains readable - the instructions above will be enough.
 
-However, if there is no way to transfer the file or the hosting has internal blocks (*for example, Vercel considers this file unused and does not read it*) - you need to wrap `next.config.js` in `withI18n`
+However, if there is no way to transfer the file or the hosting has internal blocks (_for example, Vercel considers this file unused and does not read it_) - you need to wrap `next.config.js` in `withI18n`
 
 ```js filename="/next.config.js"
-const { default: i18n } = require('@nimpl/i18n/i18n');
+const { default: i18n } = require("@nimpl/i18n/i18n");
 
 const i18nWrapper = i18n();
 
@@ -306,14 +323,14 @@ You can only create one root layout. In the root (`/app`) we don't know the lang
 Therefore, the only way to do it is to create a root layout for localized pages in the `[lang]` folder.
 
 ```tsx filename="/app/[lang]/layout.tsx"
-type RootLayoutProps = { children: React.ReactNode; params: { lang: string } }
+type RootLayoutProps = { children: React.ReactNode; params: { lang: string } };
 
 export default function RootLayout({ children, params }: RootLayoutProps) {
   return (
     <html lang={params.lang}>
       <body>{children}</body>
     </html>
-  )
+  );
 }
 ```
 
@@ -329,4 +346,4 @@ Read about working on the package and making changes on the [contribution page](
 
 ## Examples
 
-[Base example](https://github.com/vordgi/nimpl-i18n/tree/main/examples/base)
+[Base example](https://github.com/alexdln/nimpl-i18n/tree/main/examples/base)
