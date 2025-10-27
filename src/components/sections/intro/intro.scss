@@ -1,4 +1,4 @@
-@import "src/assets/_vars";
+@use "../../../assets/vars.scss" as *;
 
 .intro-container {
   position: relative;

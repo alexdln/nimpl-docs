@@ -6,24 +6,29 @@ const nextConfig = {
     async redirects() {
         return [
             {
-                source: '/:name(i18n|ab-tests|cache-adapter|cache-in-memory|classnames-minifier|config|context|middleware-chain|router)/:path*',
-                destination: '/docs/:name',
+                source: "/:name(i18n|ab-tests|cache-adapter|cache-in-memory|classnames-minifier|config|context|middleware-chain|router)/:path*",
+                destination: "/docs/:name",
                 statusCode: 308,
             },
             {
-                source: '/getters',
-                destination: '/docs/server-getters',
+                source: "/docs/middleware-chain",
+                destination: "/docs/proxy-chain",
                 statusCode: 308,
             },
             {
-                source: '/docs/getters',
-                destination: '/docs/server-getters',
+                source: "/getters",
+                destination: "/docs/server-getters",
                 statusCode: 308,
             },
-        ]
+            {
+                source: "/docs/getters",
+                destination: "/docs/server-getters",
+                statusCode: 308,
+            },
+        ];
     },
     outputFileTracingIncludes: {
-        '/api/search': ['./docs/**/*', './blog/**/*', './README.md'],
+        "/api/search": ["./docs/**/*", "./blog/**/*", "./README.md"],
     },
 };
 
