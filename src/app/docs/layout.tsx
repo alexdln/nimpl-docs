@@ -8,22 +8,15 @@ import { AlertDialog } from "@/components/ui/alert-dialog";
 
 export const metadata: Metadata = {
     title: {
-      template: '%s | Nimpl Solutions',
-      default: 'Nimpl Solutions Documentation',
+        template: "%s | Nimpl Solutions",
+        default: "Nimpl Solutions Documentation",
     },
     description: "Nimpl Solutions Documentation",
 };
 
-export default function RootLayout({
-    children,
-}: Readonly<{ children?: React.ReactNode }>) {
+export default function RootLayout({ children }: Readonly<{ children?: React.ReactNode }>) {
     return (
-        <TopLayerProvider
-            toast={Toast}
-            dialogs={[
-                { dialog: AlertDialog, id: "alert" },
-            ]}
-        >
+        <TopLayerProvider toast={Toast} dialogs={[{ dialog: AlertDialog, id: "alert" }]}>
             <DocsContainer>
                 <Sidebar />
                 {children}

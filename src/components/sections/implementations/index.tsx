@@ -1,7 +1,7 @@
-import Link from 'next/link';
-import { Container } from 'robindoc/lib/components/ui/container';
+import Link from "next/link";
+import { Container } from "robindoc/lib/components/ui/container";
 
-import './implementations.scss';
+import "./implementations.scss";
 
 export const Implementations = () => (
     <section className="implementations" id="implementations">
@@ -25,6 +25,13 @@ export const Implementations = () => (
                         <h3>@nimpl/path-parser</h3>
                         <p>Helper for next.js-styled pathname parsing to get dynamic params</p>
                     </Link>
+                    <Link href="/docs/top-layer" className="implementations-card">
+                        <h3>top-layer</h3>
+                        <p>
+                            Top Layer is a library for working with dialogs and toasts in a separate isolated layer
+                            without application rerenders
+                        </p>
+                    </Link>
                 </div>
             </div>
             <div className="implementations-section">
@@ -34,9 +41,9 @@ export const Implementations = () => (
                         <h3>@nimpl/classnames-minifier</h3>
                         <p>Configuring style (css/scss/sass) modules to generate compressed classes</p>
                     </Link>
-                    <Link href="/docs/middleware-chain" className="implementations-card">
-                        <h3>@nimpl/middleware-chain</h3>
-                        <p>Create a chain of native next.js middlewares without any modifications</p>
+                    <Link href="/docs/proxy-chain" className="implementations-card">
+                        <h3>@nimpl/proxy-chain</h3>
+                        <p>Create a chain of native next.js proxies without any modifications</p>
                     </Link>
                     <Link href="/docs/router" className="implementations-card">
                         <h3>@nimpl/router</h3>
@@ -48,7 +55,7 @@ export const Implementations = () => (
                     </Link>
                     <Link href="/docs/ab-tests" className="implementations-card">
                         <h3>@nimpl/ab-tests</h3>
-                        <p>A package for conducting A/B tests on a website using middleware</p>
+                        <p>A package for conducting A/B tests on a website using middleware/proxy</p>
                     </Link>
                 </div>
             </div>
@@ -57,7 +64,10 @@ export const Implementations = () => (
                 <div className="implementations-list">
                     <Link href="/docs/cache-adapter" className="implementations-card">
                         <h3>@nimpl/cache-adapter</h3>
-                        <p>An adapter that allows to use any cache handler on the client and server side and switch between them</p>
+                        <p>
+                            An adapter that allows to use any cache handler on the client and server side and switch
+                            between them
+                        </p>
                     </Link>
                     <Link href="/docs/cache-in-memory" className="implementations-card">
                         <h3>@nimpl/cache-in-memory</h3>
@@ -90,4 +100,4 @@ export const Implementations = () => (
             </div>
         </Container>
     </section>
-)
+);

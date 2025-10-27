@@ -1,6 +1,6 @@
 ---
-title: 'context docs'
-description: 'Implementation of server contexts in React Server Components without switching to SSR'
+title: "context docs"
+description: "Implementation of server contexts in React Server Components without switching to SSR"
 previewName: context-docs
 ---
 
@@ -10,7 +10,7 @@ previewName: context-docs
 
 Implementation of server contexts in React Server Components without switching to SSR.
 
-*Before using the library, read the [Possible Issues](#possible-issues)*
+_Before using the library, read the [Possible Issues](#possible-issues)_
 
 > [!NOTE]
 > Previously, contexts were part of [@nimpl/getters](./server-getters.mdx), but with the release of react 19, they were moved to a separate package.
@@ -18,6 +18,7 @@ Implementation of server contexts in React Server Components without switching t
 ## Installation
 
 **Using npm:**
+
 ```sh npm2yarn copy
 npm i @nimpl/context
 ```
@@ -26,7 +27,7 @@ npm i @nimpl/context
 
 Package covered with tests. Tests are run on every release and every 6 hours on the latest **Canary** version of `Next.js`.
 
-In this way, you can be sure that if there is a breaking change in `Next.js`, this will immediately become known. *Even before the release of a stable version of `Next.js`.*
+In this way, you can be sure that if there is a breaking change in `Next.js`, this will immediately become known. _Even before the release of a stable version of `Next.js`._
 
 > [!NOTE]
 > The package uses node `AsyncLocalStorage` instead of `react cache` for the reason that cache from react.js works for the entire page as a whole.
@@ -38,58 +39,58 @@ In this way, you can be sure that if there is a breaking change in `Next.js`, th
 > Since next.js builds Layout and Page independently, they cannot have a single context. That is, you need to initiate the context in both `layout.tsx` and `page.tsx`
 
 1\. **Initialize the context**
-```tsx filename="./ExampleContext.ts"
-import createServerContext from "@nimpl/context/create-server-context"
 
-export const ExampleContext = createServerContext<{ data: string }>()
+```tsx filename="./ExampleContext.ts"
+import createServerContext from "@nimpl/context/create-server-context";
+
+export const ExampleContext = createServerContext<{ data: string }>();
 ```
 
 2\. **Transfer the data to the provider**
+
 ```tsx filename="./ParentComponent.tsx"
-import { ExampleContext } from "./ExampleContext"
-import ChildComponent from "./ChildComponent"
+import { ExampleContext } from "./ExampleContext";
+import ChildComponent from "./ChildComponent";
 
 export default function ParentComponent() {
-    return (
-        <ExampleContext.Provider value={{ data: 'test' }}>
-            <ChildComponent />
-        </ExampleContext.Provider>
-    )
+  return (
+    <ExampleContext.Provider value={{ data: "test" }}>
+      <ChildComponent />
+    </ExampleContext.Provider>
+  );
 }
 ```
 
 3\. **Get context data**
+
 ```tsx filename="./ChildComponent.tsx"
-import getServerContext from "@nimpl/context/get-server-context"
-import { ExampleContext } from "./ExampleContext"
+import getServerContext from "@nimpl/context/get-server-context";
+import { ExampleContext } from "./ExampleContext";
 
 export default function ChildComponent() {
-    const context = getServerContext(ExampleContext)
+  const context = getServerContext(ExampleContext);
 
-    return (
-        <div>
-            {context?.data}
-        </div>
-    )
+  return <div>{context?.data}</div>;
 }
 ```
 
 3\.1. **You can also use a consumer to get context data**
+
 ```tsx filename="./ParentComponent.tsx"
-import { ExampleContext } from "./ExampleContext"
-import ChildComponent from "./ChildComponent"
+import { ExampleContext } from "./ExampleContext";
+import ChildComponent from "./ChildComponent";
 
 export default function ParentComponent() {
-    return (
-        <ExampleContext.Provider value={{ data: 'test' }}>
-            <ExampleContext.Consumer>
-                {(data) => {
-                    //...
-                    return <ChildComponent />
-                }}
-            </ExampleContext.Consumer>
-        </ExampleContext.Provider>
-    )
+  return (
+    <ExampleContext.Provider value={{ data: "test" }}>
+      <ExampleContext.Consumer>
+        {(data) => {
+          //...
+          return <ChildComponent />;
+        }}
+      </ExampleContext.Consumer>
+    </ExampleContext.Provider>
+  );
 }
 ```
 
@@ -111,7 +112,7 @@ A similar approach is used in dozens of places inside nextjs. But if you have ex
 
 ## Examples
 
-You can see examples in the [package repository](https://github.com/vordgi/nimpl-context/tree/main/examples).
+You can see examples in the [package repository](https://github.com/alexdln/nimpl-context/tree/main/examples).
 
 ## Development
 

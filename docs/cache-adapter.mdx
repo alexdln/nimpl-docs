@@ -1,6 +1,6 @@
 ---
-title: 'cache-adapter docs'
-description: 'An adapter that allows you to use any cache handler on the client and server side and switch between them. Adds support for running next.js applications in multiple instances'
+title: "cache-adapter docs"
+description: "An adapter that allows you to use any cache handler on the client and server side and switch between them. Adds support for running next.js applications in multiple instances"
 previewName: cache-adapter-docs
 ---
 
@@ -14,15 +14,16 @@ An adapter that allows you to use any cache handler on the client and server sid
 
 ## Advantages
 
-* Shared cache between different instances (replicas, copies) of the application.
-* Three caching options: local, remote and isomorphic.
-* Same cacheHandler on the client and on the created server.
-* Caching without server restart.
-* Clearing of outdated cache.
+- Shared cache between different instances (replicas, copies) of the application.
+- Three caching options: local, remote and isomorphic.
+- Same cacheHandler on the client and on the created server.
+- Caching without server restart.
+- Clearing of outdated cache.
 
 ## Installation
 
 **Using npm:**
+
 ```sh npm2yarn copy
 npm i @nimpl/cache-adapter
 ```
@@ -41,13 +42,13 @@ The server is launched, to which the required cacheHandler is passed:
 
 ```js
 // @ts-check
-const { createServer } = require('@nimpl/cache-adapter');
-const CacheHandler = require('@nimpl/cache-in-memory');
+const { createServer } = require("@nimpl/cache-adapter");
+const CacheHandler = require("@nimpl/cache-in-memory");
 
 const server = createServer(new CacheHandler({}));
 
-server.listen('4000', () => {
-    console.log('Server is running at http://localhost:4000');
+server.listen("4000", () => {
+  console.log("Server is running at http://localhost:4000");
 });
 ```
 
@@ -55,20 +56,20 @@ A special adapter is set up to work with the cache:
 
 ```js filename="cache-handler.js"
 // @ts-check
-const { AppAdapter } = require('@nimpl/cache-adapter');
-const CacheHandler = require('@nimpl/cache-in-memory');
+const { AppAdapter } = require("@nimpl/cache-adapter");
+const CacheHandler = require("@nimpl/cache-in-memory");
 
 class CustomCacheHandler extends AppAdapter {
-    /** @param {any} options */
-    constructor(options) {
-        super({
-            CacheHandler,
-            buildId: process.env.BUILD_ID || 'base_id',
-            cacheUrl: 'http://localhost:4000',
-            cacheMode: 'remote',
-            options,
-        })
-    }
+  /** @param {any} options */
+  constructor(options) {
+    super({
+      CacheHandler,
+      buildId: process.env.BUILD_ID || "base_id",
+      cacheUrl: "http://localhost:4000",
+      cacheMode: "remote",
+      options,
+    });
+  }
 }
 
 module.exports = CustomCacheHandler;
@@ -78,9 +79,9 @@ The created cache-handler is connected in the next.js configuration:
 
 ```js filename="next.config.js"
 module.exports = {
-  cacheHandler: require.resolve('./cache-handler.js'),
+  cacheHandler: require.resolve("./cache-handler.js"),
   cacheMaxMemorySize: 0, // disable default in-memory caching
-}
+};
 ```
 
 That's it. Now the cache is configured.
@@ -121,7 +122,7 @@ Options passed to `cacheHandler` from **next.js**. They just need to be passed f
 
 ## Examples
 
-Base example with [@nimpl/cache-in-memory](https://nimpl.dev/docs/cache-in-memory). [See example](https://github.com/vordgi/nimpl-cache/tree/main/example).
+Base example with [@nimpl/cache-in-memory](https://nimpl.dev/docs/cache-in-memory). [See example](https://github.com/alexdln/nimpl-cache/tree/main/example).
 
 ## Development
 

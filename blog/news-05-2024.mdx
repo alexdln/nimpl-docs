@@ -12,20 +12,20 @@ The new design shows this connection, demonstrates how nimpl interacts with next
 
 At the same time, the site's accessibility has been completely improved. The site is now not only fast but also accessible.
 
-A new category was added, tools - utilities that can make life better. At the moment, they include [@nimpl/versioner](https://github.com/vordgi/nimpl-versioner) and [@nimpl/inio](https://github.com/vordgi/nimpl-inio).
+A new category was added, tools - utilities that can make life better. At the moment, they include [@nimpl/versioner](https://github.com/alexdln/nimpl-versioner) and [@nimpl/inio](https://github.com/alexdln/nimpl-inio).
 
-## New package - @nimpl/middleware-chain
+## New package - @nimpl/proxy-chain
 
-During the work on the package [@nimpl/ab-tests](https://github.com/vordgi/nimpl-ab-tests), it was decided to test it in several projects. However, adding a simple middleware turned out to be a real adventure. The problem is that there were already middleware in the projects - one with next-intl, one with next-auth.
+During the work on the package [@nimpl/ab-tests](https://github.com/alexdln/nimpl-ab-tests), it was decided to test it in several projects. However, adding a simple middleware turned out to be a real adventure. The problem is that there were already middleware in the projects - one with next-intl, one with next-auth.
 
 All existing middleware combination solutions work through their own APIs - they are made in the style of express.js or in their own vision. They are useful, well-implemented, and convenient. But only in those cases when each used middleware can be updated for them.
 
-But it was necessary for each middleware to work like the original middleware from next.js. That's how [@nimpl/middleware-chain](https://github.com/vordgi/nimpl-middleware-chain) appeared:
+But it was necessary for each middleware to work like the original middleware from next.js. That's how [@nimpl/proxy-chain](https://github.com/alexdln/nimpl-proxy-chain) appeared:
 
 ```tsx
 import { default as authMiddleware } from "next-auth/middleware";
 import createMiddleware from "next-intl/middleware";
-import { chain } from "@nimpl/middleware-chain";
+import { chain } from "@nimpl/proxy-chain";
 
 const intlMiddleware = createMiddleware({
   locales: ["en", "dk"],
@@ -43,7 +43,7 @@ One of the problems for me is working with local translations. If you need to ch
 
 It's not quick, it’s not comfy, it’s not developer-friendly. Dozens of actions when you literally need a few.
 
-That's why I appreciated the idea of creating a dynamic new way to edit JSON files. A Plug-and-Play solution - just Run and Edit! With [@nimpl/inio](https://github.com/vordgi/nimpl-inio).
+That's why I appreciated the idea of creating a dynamic new way to edit JSON files. A Plug-and-Play solution - just Run and Edit! With [@nimpl/inio](https://github.com/alexdln/nimpl-inio).
 
 <video width="100%" height="auto" autoPlay loop controls muted className="mt-4">
   <source src="/blog/nimpl-inio-demo.mp4" type="video/mp4" />

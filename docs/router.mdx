@@ -1,5 +1,5 @@
 ---
-title: 'router docs'
+title: "router docs"
 description: "@nimpl/router edge router for next.js apps (i18n, basePath, rewrites, redirects)"
 previewName: router-introduction
 ---
@@ -9,53 +9,54 @@ previewName: router-introduction
 <PackageLinks npmName="@nimpl/router" githubName="nimpl-router" />
 
 Edge router for next.js apps.
-Allows you to configure `rewrites`, `redirects`, `i18n` and `basePath` at the `middleware` level instead of `next.config.js`.
+Allows you to configure `rewrites`, `redirects`, `i18n` and `basePath` at the `proxy` level instead of `next.config.js`.
 
 ## Motivation
 
 All these settings are much more efficient in @nimpl/router and in edge runtime for several reasons:
 
 1. The Edge is best suited for redirects.
-Instead of the `Client -> Edge -> Server -> Redirect -> Client -> Edge -> Server -> Response` journey, it becomes `Client -> Edge -> Redirect -> Client -> Edge -> Server -> Response`.
-That is, instead of two long journeys to the server, the client goes to the CDN and then goes to the server only for the necessary route.
+   Instead of the `Client -> Edge -> Server -> Redirect -> Client -> Edge -> Server -> Response` journey, it becomes `Client -> Edge -> Redirect -> Client -> Edge -> Server -> Response`.
+   That is, instead of two long journeys to the server, the client goes to the CDN and then goes to the server only for the necessary route.
 
-2. Next.js `i18n` is full of bugs, and in the latest versions, they completely abandoned it, recommending using middleware.
+2. Next.js `i18n` is full of bugs, and in the latest versions, they completely abandoned it, recommending using proxy.
 
-3. In `middleware`, you can decide for yourself which settings to enable for which paths, which rules to set, which redirect lists for `/app` paths, and which for `/marketing`.
-Take a look at the [middleware-chain](./middleware-chain.mdx) to get the most flexible and suitable configuration for you.
+3. In `proxy`, you can decide for yourself which settings to enable for which paths, which rules to set, which redirect lists for `/app` paths, and which for `/marketing`.
+   Take a look at the [proxy-chain](./proxy-chain.mdx) to get the most flexible and suitable configuration for you.
 
 ## Installation
 
 **Using npm:**
+
 ```sh npm2yarn copy
 npm i @nimpl/router
 ```
 
 ## Example
 
-```ts filename="middleware.ts"
-import { createMiddleware } from '@nimpl/router';
+```ts filename="proxy.ts"
+import { createMiddleware } from "@nimpl/router";
 
-export const middleware = createMiddleware({
-    redirects: [
-        {
-            source: '/old',
-            destination: '/',
-            permanent: false,
-        },
-    ],
-    rewrites: [
-        {
-            source: '/home',
-            destination: '/',
-            locale: false,
-        },
-    ],
-    basePath: '/doc',
-    i18n: {
-        defaultLocale: 'en',
-        locales: ['en', 'de'],
+export const proxy = createMiddleware({
+  redirects: [
+    {
+      source: "/old",
+      destination: "/",
+      permanent: false,
     },
+  ],
+  rewrites: [
+    {
+      source: "/home",
+      destination: "/",
+      locale: false,
+    },
+  ],
+  basePath: "/doc",
+  i18n: {
+    defaultLocale: "en",
+    locales: ["en", "de"],
+  },
 });
 ```
 
@@ -69,24 +70,24 @@ The options either completely repeat the next.js API, or they are as close as po
 
 `basePath` - path prefix for the application (f.e. `/docs`, `/blog`, `/v2`)
 
-<Hint>
-For flexibility, it is recommended not to use basePath in next.config.js, but to manually set the prefix in the links.
-</Hint>
+> [!TIP]
+> For flexibility, it is recommended not to use basePath in next.config.js, but
+> to manually set the prefix in the links.
 
 `i18n` - configuration for localized paths.
 
-<Hint>
-Unlike the next.config.js solution, it has nothing to do with Link and does not participate in the generation of page paths.
-That is, localization should be embedded in the structure of the application (e.g. `app/[lang]/page.tsx`).
-</Hint>
+> [!TIP]
+> Unlike the next.config.js solution, it has nothing to do with Link and does
+> not participate in the generation of page paths. That is, localization should
+> be embedded in the structure of the application (e.g. `app/[lang]/page.tsx`).
 
 Also, instead of a boolean `localeDetection`, the router takes a `localeDetector` method where you can set up how exactly to get the locale (_f.e. from a CloudFlare header_)
 
 Otherwise, it repeats the logic of next.js. [Next.config.js/i18n documentation](https://nextjs.org/docs/pages/building-your-application/routing/internationalization)
 
-<Hint>
-It is recommended not to use i18n in next.config.js, but to manually set the required locale in the links.
-</Hint>
+> [!TIP]
+> It is recommended not to use i18n in next.config.js, but to manually set the
+> required locale in the links.
 
 ## Development
 

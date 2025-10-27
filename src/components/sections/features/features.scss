@@ -1,4 +1,4 @@
-@import "src/assets/_vars";
+@use "../../../assets/vars.scss" as *;
 
 .features {
   margin-top: 40px;

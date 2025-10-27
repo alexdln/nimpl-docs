@@ -1,4 +1,4 @@
-@import "src/assets/_vars";
+@use "../../../assets/vars.scss" as *;
 
 .about {
   margin-top: 80px;

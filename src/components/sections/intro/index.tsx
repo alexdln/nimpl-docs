@@ -1,29 +1,31 @@
-'use client';
+"use client";
 
 import Link from "next/link";
 import { useRef } from "react";
-import { Container } from 'robindoc/lib/components/ui/container';
-import { Heading } from 'robindoc/lib/components/ui/heading';
+import { Container } from "robindoc/lib/components/ui/container";
 
-import './intro.scss';
+import "./intro.scss";
 
 export const Intro = () => {
     const circleRef = useRef<SVGCircleElement>(null);
 
     const onMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
         const ratio = 961 / e.currentTarget.clientWidth;
-        const maskOffsetTop = (e.currentTarget.clientHeight - (355 / ratio)) / 2;
-        circleRef.current!.setAttribute('cx', ((e.clientX - e.currentTarget.offsetLeft) * ratio).toString());
-        circleRef.current!.setAttribute('cy', ((e.clientY - e.currentTarget.offsetTop + window.scrollY - maskOffsetTop) * ratio).toString());
-    }
+        const maskOffsetTop = (e.currentTarget.clientHeight - 355 / ratio) / 2;
+        circleRef.current!.setAttribute("cx", ((e.clientX - e.currentTarget.offsetLeft) * ratio).toString());
+        circleRef.current!.setAttribute(
+            "cy",
+            ((e.clientY - e.currentTarget.offsetTop + window.scrollY - maskOffsetTop) * ratio).toString(),
+        );
+    };
 
     const onMouseLeave = () => {
-        circleRef.current!.classList.add('intro-circle-hidden');
-    }
+        circleRef.current!.classList.add("intro-circle-hidden");
+    };
 
     const onMouseEnter = () => {
-        circleRef.current!.classList.remove('intro-circle-hidden');
-    }
+        circleRef.current!.classList.remove("intro-circle-hidden");
+    };
 
     return (
         <section>
@@ -34,9 +36,12 @@ export const Intro = () => {
                 onMouseEnter={onMouseEnter}
             >
                 <h1 className="intro-heaging">
-                    <span className="intro-text-dye-blue">Solutions</span> for your <span className="intro-text-dye-pink">Next.js</span> project
+                    <span className="intro-text-dye-blue">Solutions</span> for your{" "}
+                    <span className="intro-text-dye-pink">Next.js</span> project
                 </h1>
-                <h2 className="intro-subheaging">cover the flaws of next.js and supplement it with much-desired functionality</h2>
+                <h2 className="intro-subheaging">
+                    cover the flaws of next.js and supplement it with much-desired functionality
+                </h2>
                 <div className="intro-actions">
                     <Link href="/#implementations" className="intro-button">
                         Get Started
@@ -58,10 +63,26 @@ export const Intro = () => {
                         <path d="M199 14C199 7.37258 204.373 2 211 2H235C241.627 2 247 7.37258 247 14V38C247 44.6274 241.627 50 235 50H211C204.373 50 199 44.6274 199 38V14Z" />
                         <path d="M14 2H38C42.4417 2 46.3198 4.41321 48.3946 8L199 252.751V73C199 66.3726 204.373 61 211 61H235C241.627 61 247 66.3726 247 73V340C247 346.627 241.627 352 235 352C235 352 217.132 352.052 210.503 352.052C206.452 352.066 202.492 350.029 200.22 346.323L50 101.365V340C50 346.627 44.6274 352 38 352H14C7.37258 352 2 346.627 2 340V14C2 7.37259 7.37258 2 14 2Z" />
                     </mask>
-                    <rect fill="currentColor" cx="0" cy="0" width="100%" height="100%" mask="url(#logo-mask)" opacity={.7}></rect>
-                    <circle className="intro-circle intro-circle-hidden" fill="blue" cx="0" cy="0" r="150" mask="url(#logo-mask)" ref={circleRef}></circle>
+                    <rect
+                        fill="currentColor"
+                        cx="0"
+                        cy="0"
+                        width="100%"
+                        height="100%"
+                        mask="url(#logo-mask)"
+                        opacity={0.7}
+                    ></rect>
+                    <circle
+                        className="intro-circle intro-circle-hidden"
+                        fill="blue"
+                        cx="0"
+                        cy="0"
+                        r="150"
+                        mask="url(#logo-mask)"
+                        ref={circleRef}
+                    ></circle>
                 </svg>
             </Container>
         </section>
-    )
-}
+    );
+};

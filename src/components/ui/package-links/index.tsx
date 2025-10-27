@@ -1,11 +1,11 @@
-import Link from 'next/link';
+import Link from "next/link";
 
-import './package-links.scss';
+import "./package-links.scss";
 
 type PackageLinksProps = {
     npmName: string;
     githubName: string;
-}
+};
 
 export const PackageLinks: React.FC<PackageLinksProps> = ({ npmName, githubName }) => (
     <div className="package-links">
@@ -15,19 +15,15 @@ export const PackageLinks: React.FC<PackageLinksProps> = ({ npmName, githubName 
             target="_blank"
             rel="noopener noreferrer"
         >
-            <span className="package-links-link-inner">
-                NPM
-            </span>
+            <span className="package-links-link-inner">NPM</span>
         </Link>
         <Link
-            href={`https://github.com/vordgi/${githubName}`}
+            href={`https://github.com/alexdln/${githubName}`}
             className="package-links-link package-links-link-github"
             target="_blank"
             rel="noopener noreferrer"
         >
-            <span className="package-links-link-inner">
-                GitHub
-            </span>
+            <span className="package-links-link-inner">GitHub</span>
         </Link>
     </div>
-)
+);

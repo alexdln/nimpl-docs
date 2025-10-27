@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 import { useToastAction } from "top-layer/toaster";
 
@@ -11,15 +11,12 @@ export interface ToastActionProps {
     layers?: string[];
 }
 
-export const ToastAction: React.FC<ToastActionProps> = ({ type, message, layers = ['root'], title }) => {
-    const { openToaster } = useToastAction('nimpl-toast');
+export const ToastAction: React.FC<ToastActionProps> = ({ type, message, layers = ["root"], title }) => {
+    const { showToast } = useToastAction("nimpl-toast");
 
     return (
-        <button
-            className="toast-action"
-            onClick={() => openToaster({ type, message }, layers)}
-        >
+        <button className="toast-action" onClick={() => showToast({ type, message }, layers)}>
             {title}
         </button>
-    )
-}
+    );
+};

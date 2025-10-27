@@ -1,7 +1,3 @@
-import './hint.scss';
+import "./hint.scss";
 
-export const Hint: React.FC<{ children?: React.ReactNode }> = ({ children }) => (
-    <div className="hint">
-        {children}
-    </div>
-)
+export const Hint: React.FC<{ children?: React.ReactNode }> = ({ children }) => <div className="hint">{children}</div>;
