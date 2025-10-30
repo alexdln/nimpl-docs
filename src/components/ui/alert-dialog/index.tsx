@@ -1,30 +1,24 @@
 "use client";
 
-import { useState } from "react";
-import { useDialogAction } from "top-layer/dialog/hooks";
-import { Dialog } from "top-layer/dialog";
+import { useDialogAction, useDialogData } from "top-layer/dialogs";
+
 import { ToastAction } from "../toast-action";
 
 import "./alert-dialog.scss";
 
 export const AlertDialog: React.FC = () => {
-    const [state, setState] = useState<string | null>(null);
-    const { closeDialog } = useDialogAction("alert");
+    const data = useDialogData<string>();
+    const { close } = useDialogAction();
 
     return (
-        <Dialog className="alert-dialog" id="alert" blockOverflow onOpen={setState} onClose={() => setState(null)}>
-            <div className="alert-dialog-backdrop" onClick={closeDialog} />
+        <div className="alert-dialog" id="alert">
+            <div className="alert-dialog-backdrop" onClick={() => close()} />
             <div className="alert-dialog-content">
-                <p>{state}</p>
-                <ToastAction type="neutral" message="Root Toast" title="Show Toast in Root" />
-                <ToastAction type="neutral" message="Dialog Toast" layers={["alert"]} title="Show Toast in Dialog" />
-                <ToastAction
-                    type="neutral"
-                    message="Both Toast"
-                    layers={["root", "alert"]}
-                    title="Show Toast in Both"
-                />
+                <p>{data}</p>
+                <ToastAction type="success" message="Success Toast" title="Show Success Toast" />
+                <ToastAction type="error" message="Error Toast" title="Show Error Toast" />
+                <ToastAction type="warning" message="Warning Toast" title="Show Warning Toast" />
             </div>
-        </Dialog>
+        </div>
     );
 };
