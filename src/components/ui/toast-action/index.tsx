@@ -1,21 +1,25 @@
 "use client";
 
-import { useToastAction } from "top-layer/toaster";
+import { useUpperLayerStore } from "top-layer/upper-layers";
+
+import { type Toast } from "../toasts-layer";
 
 import "./toast-action.scss";
 
 export interface ToastActionProps {
-    type: string;
+    type: Toast["type"];
     message: string;
     title: string;
-    layers?: string[];
 }
 
-export const ToastAction: React.FC<ToastActionProps> = ({ type, message, layers = ["root"], title }) => {
-    const { showToast } = useToastAction("nimpl-toast");
+export const ToastAction: React.FC<ToastActionProps> = ({ type, message, title }) => {
+    const { update } = useUpperLayerStore({ id: "toasts" });
 
     return (
-        <button className="toast-action" onClick={() => showToast({ type, message }, layers)}>
+        <button
+            className="toast-action"
+            onClick={() => update({ data: (prev: Toast[]) => [...prev, { type, message }] })}
+        >
             {title}
         </button>
     );

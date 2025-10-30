@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { DocsContainer, KeylinkToNavigation } from "robindoc";
 import { TopLayerProvider } from "top-layer";
 
-import { Toast } from "@/components/ui/toast";
+import { ToastsLayer } from "@/components/ui/toasts-layer";
 import { Sidebar } from "./robindoc";
 import { AlertDialog } from "@/components/ui/alert-dialog";
 
@@ -16,7 +16,10 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: Readonly<{ children?: React.ReactNode }>) {
     return (
-        <TopLayerProvider toast={Toast} dialogs={[{ dialog: AlertDialog, id: "alert" }]}>
+        <TopLayerProvider
+            upperLayers={[{ layer: ToastsLayer, id: "toasts", defaultData: [] }]}
+            dialogs={[{ dialog: AlertDialog, id: "alert" }]}
+        >
             <DocsContainer>
                 <Sidebar />
                 {children}
