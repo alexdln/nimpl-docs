@@ -32,15 +32,22 @@ export const { Page, Sidebar, getStaticParams, getMetadata, getPageData } = init
             href: "/context",
         },
         {
-            title: "Path Parser",
-            href: "/path-parser",
-        },
-        {
             title: "Top Layer",
             href: "/top-layer",
             configuration: {
                 sourceRoot: "https://github.com/alexdln/top-layer/blob/main/README.md",
             },
+        },
+        {
+            title: "Contection",
+            href: "/contection",
+            configuration: {
+                sourceRoot: "https://github.com/alexdln/contection/blob/main/README.md",
+            },
+        },
+        {
+            title: "Path Parser",
+            href: "/path-parser",
         },
         {
             title: "Configuration Implementations",
