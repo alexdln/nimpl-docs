@@ -21,9 +21,12 @@ export const Implementations = () => (
                         <h3>@nimpl/context</h3>
                         <p>Server contexts for RSC without switching to SSR</p>
                     </Link>
-                    <Link href="/docs/path-parser" className="implementations-card">
-                        <h3>@nimpl/path-parser</h3>
-                        <p>Helper for next.js-styled pathname parsing to get dynamic params</p>
+                    <Link href="/docs/contection" className="implementations-card">
+                        <h3>contection</h3>
+                        <p>
+                            A state management library that extends React Context API with fine-grained subscriptions
+                            and computed values.
+                        </p>
                     </Link>
                     <Link href="/docs/top-layer" className="implementations-card">
                         <h3>top-layer</h3>
@@ -31,6 +34,10 @@ export const Implementations = () => (
                             Top Layer is a library for working with dialogs and toasts in a separate isolated layer
                             without application rerenders
                         </p>
+                    </Link>
+                    <Link href="/docs/path-parser" className="implementations-card">
+                        <h3>@nimpl/path-parser</h3>
+                        <p>Helper for next.js-styled pathname parsing to get dynamic params</p>
                     </Link>
                 </div>
             </div>

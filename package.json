@@ -18,7 +18,7 @@
     "react-dom": "19.2.0",
     "robindoc": "3.2.1",
     "sass": "1.83.1",
-    "top-layer": "2.0.0"
+    "top-layer": "2.0.1"
   },
   "devDependencies": {
     "@types/node": "22.10.5",
