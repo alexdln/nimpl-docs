@@ -16,7 +16,7 @@
     "next": "16.1.1",
     "react": "19.2.3",
     "react-dom": "19.2.3",
-    "robindoc": "3.3.0",
+    "robindoc": "3.3.2",
     "sass": "1.97.1",
     "top-layer": "2.0.1"
   },
