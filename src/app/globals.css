@@ -1,3 +1,15 @@
+body,
+html {
+  padding: 0;
+  margin: 0;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 :root {
   --base-neutral-50: #f8fafc;
   --base-neutral-100: #f1f5f9;
@@ -14,7 +26,7 @@
   --base-body-950: #00020a;
 }
 
-.theme-light {
+.r-theme-light {
   --color-base-0: 250 250 250;
   --color-dye-pink: 210 0 98;
   --color-dye-blue: 83 86 255;
@@ -32,7 +44,7 @@
   --cl-body: var(--base-body-50);
 }
 
-.theme-dark {
+.r-theme-dark {
   --color-base-0: 17 17 17;
   --color-dye-pink: 240 35 130;
   --color-dye-blue: 83 86 255;

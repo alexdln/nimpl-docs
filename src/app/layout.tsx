@@ -1,13 +1,14 @@
 import type { Metadata } from "next";
+import { Fragment } from "react";
 import { Inter } from "next/font/google";
 import { Header, Footer, RobinProvider, KeylinkToContent } from "robindoc";
 import { Analytics } from "@vercel/analytics/react";
 
 import { Logo } from "../components/ui/logo";
+import { theme } from "./theme";
 
 import "robindoc/lib/styles.css";
 import "./globals.css";
-import { theme } from "./theme";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -26,9 +27,9 @@ export default function RootLayout({
     children: React.ReactNode;
 }>) {
     return (
-        <html lang="en" suppressHydrationWarning>
+        <html lang="en" suppressHydrationWarning className="r-root">
             <body className={inter.className}>
-                <RobinProvider theme={theme}>
+                <RobinProvider theme={theme} component={Fragment}>
                     <KeylinkToContent />
                     <Header
                         links={[
