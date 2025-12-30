@@ -9,6 +9,9 @@
     "lint": "eslint .",
     "prepare": "husky"
   },
+  "lint-staged": {
+    "*.{ts,tsx,js,jsx}": ["eslint"]
+  },
   "dependencies": {
     "@vercel/analytics": "1.6.1",
     "glob": "13.0.0",
