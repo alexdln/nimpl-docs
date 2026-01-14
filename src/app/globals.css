@@ -20,10 +20,35 @@ html {
   --base-neutral-600: #475569;
   --base-neutral-700: #334155;
   --base-neutral-800: #1e293b;
-  --base-neutral-900: #0f172a;
+  --base-neutral-900: #091227;
   --base-neutral-950: #020617;
   --base-body-50: #ffffff;
   --base-body-950: #00020a;
+}
+
+html {
+  --rb-primary-50: #eff6ff;
+  --rb-primary-100: #dbeafe;
+  --rb-primary-200: #bfdbfe;
+  --rb-primary-300: #93c5fd;
+  --rb-primary-400: #60a5fa;
+  --rb-primary-500: #3b82f6;
+  --rb-primary-600: #2563eb;
+  --rb-primary-700: #1d4ed8;
+  --rb-primary-800: #1e40af;
+  --rb-primary-900: #1e3a8a;
+  --rb-primary-950: #172554;
+  --rb-main-50: var(--base-neutral-50);
+  --rb-main-100: var(--base-neutral-100);
+  --rb-main-200: var(--base-neutral-200);
+  --rb-main-300: var(--base-neutral-300);
+  --rb-main-400: var(--base-neutral-400);
+  --rb-main-500: var(--base-neutral-500);
+  --rb-main-600: var(--base-neutral-600);
+  --rb-main-700: var(--base-neutral-700);
+  --rb-main-800: var(--base-neutral-800);
+  --rb-main-900: var(--base-neutral-900);
+  --rb-main-950: var(--base-neutral-950);
 }
 
 .r-theme-light {

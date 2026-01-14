@@ -4,12 +4,12 @@
   margin-top: 80px;
   margin-bottom: 80px;
 
-  @media screen and (width >= $sm) {
+  @media screen and (width >=$sm) {
     margin-top: 128px;
     margin-bottom: 128px;
   }
 
-  @media screen and (width >= $lg) {
+  @media screen and (width >=$lg) {
     margin-top: 160px;
     margin-bottom: 160px;
   }
@@ -25,13 +25,11 @@
     width: 200%;
     height: 100%;
     position: absolute;
-    background: linear-gradient(
-      100deg,
-      rgba(var(--color-dye-blue) / 0),
-      rgba(var(--color-dye-pink) / 0.2) 20%,
-      rgba(var(--color-dye-blue) / 0.2) 80%,
-      rgba(var(--color-dye-pink) / 0)
-    );
+    background: linear-gradient(100deg,
+        rgba(var(--color-dye-blue) / 0),
+        rgba(var(--color-dye-pink) / 0.2) 20%,
+        rgba(var(--color-dye-blue) / 0.2) 80%,
+        rgba(var(--color-dye-pink) / 0));
     animation: about-border-anim 10s infinite;
     z-index: -1;
   }
@@ -41,15 +39,14 @@
   0% {
     transform: translateX(-100%);
   }
+
   100% {
     transform: translateX(100%);
   }
 }
 
 .about-card {
-  background-color: var(--cl-body);
+  background-color: var(--cl-neutral-50);
   padding: 4px 0;
   margin: 2px 0;
-  // border-top: 2px dashed var(--cl-neutral-100);
-  // border-bottom: 2px dashed var(--cl-neutral-100);
 }
