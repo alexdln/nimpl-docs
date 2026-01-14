@@ -4,12 +4,12 @@
   margin-top: 40px;
   margin-bottom: 40px;
 
-  @media screen and (width >= $sm) {
+  @media screen and (width >=$sm) {
     margin-top: 64px;
     margin-bottom: 64px;
   }
 
-  @media screen and (width >= $lg) {
+  @media screen and (width >=$lg) {
     margin-top: 128px;
     margin-bottom: 128px;
   }
@@ -19,11 +19,11 @@
   display: grid;
   gap: 32px;
 
-  @media screen and (width >= $sm) {
+  @media screen and (width >=$sm) {
     grid-template-columns: repeat(4, 1fr);
   }
 
-  @media screen and (width >= $xl) {
+  @media screen and (width >=$xl) {
     grid-template-columns: repeat(6, 1fr);
   }
 }
@@ -34,7 +34,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  background-color: var(--cl-neutral-50);
+  background-color: color-mix(in oklab, var(--cl-neutral-100) 50%, transparent);
   border-radius: 12px;
   padding: 32px;
   height: 192px;
@@ -49,7 +49,7 @@
     border-radius: 30px;
     background-color: rgb(var(--color-dye-pink));
     box-shadow: 0 0 47px 54px rgb(var(--color-dye-pink));
-    opacity: 0.1;
+    opacity: 0.05;
   }
 
   &::after {
@@ -61,7 +61,7 @@
     border-radius: 30px;
     background-color: rgb(var(--color-dye-blue));
     box-shadow: 0 0 47px 54px rgb(var(--color-dye-blue));
-    opacity: 0.1;
+    opacity: 0.05;
   }
 }
 
@@ -160,13 +160,16 @@
     left: 4px;
     top: 4px;
   }
+
   40% {
     left: 25%;
     transform: translate(2px, 2px);
   }
+
   90% {
     left: 25%;
   }
+
   100% {
     left: 25%;
     opacity: 0;
@@ -183,14 +186,17 @@
     left: 4px;
     top: 4px;
   }
+
   40% {
     left: 50%;
     transform: translate(-6px, 2px);
   }
+
   90% {
     left: 50%;
     transform: translateX(-50%);
   }
+
   100% {
     left: 50%;
     opacity: 0;
@@ -207,14 +213,17 @@
     left: 4px;
     top: 4px;
   }
+
   40% {
     left: 75%;
     transform: translate(-4px, -2px);
   }
+
   90% {
     left: 75%;
     transform: translateX(-8px);
   }
+
   100% {
     left: 75%;
     opacity: 0;
@@ -231,14 +240,17 @@
     left: 4px;
     top: 4px;
   }
+
   40% {
     left: 100%;
     transform: translate(-10px, 2px);
   }
+
   90% {
     left: 100%;
     transform: translateX(-12px);
   }
+
   100% {
     left: 100%;
     opacity: 0;
@@ -258,11 +270,9 @@
 }
 
 .features-2-line-anim {
-  background: linear-gradient(
-    90deg,
-    rgb(var(--color-dye-pink)) 20%,
-    rgb(var(--color-dye-blue)) 80%
-  );
+  background: linear-gradient(90deg,
+      rgb(var(--color-dye-pink)) 20%,
+      rgb(var(--color-dye-blue)) 80%);
   background-size: 200% 200%;
   animation: features-2-line-anim 2s infinite;
 }
@@ -271,9 +281,11 @@
   0% {
     background-position: 20%;
   }
+
   50% {
     background-position: 80%;
   }
+
   100% {
     background-position: 20%;
   }
@@ -291,38 +303,48 @@
     border-radius: 4px 12px 6px 8px / 8px 4px 10px 14px;
     background-color: var(--cl-neutral-400);
   }
+
   10% {
     border-radius: 8px 16px 10px 6px / 14px 6px 12px 8px;
     background-color: var(--cl-neutral-600);
   }
+
   20% {
     border-radius: 14px 6px 12px 16px / 10px 12px 4px 12px;
   }
+
   30% {
     border-radius: 6px 6px 8px 10px / 16px 4px 6px 16px;
     background-color: var(--cl-neutral-400);
   }
+
   40% {
     border-radius: 16px 14px 12px 16px / 6px 14px 16px 6px;
   }
+
   50% {
     border-radius: 12px 8px 6px 10px / 10px 6px 8px 16px;
     background-color: var(--cl-neutral-600);
   }
+
   60% {
     border-radius: 16px 14px 12px 16px / 6px 14px 16px 6px;
   }
+
   70% {
     border-radius: 6px 6px 8px 10px / 16px 4px 6px 16px;
     background-color: var(--cl-neutral-400);
   }
+
   80% {
     border-radius: 14px 6px 12px 16px / 10px 12px 4px 12px;
   }
+
   90% {
     border-radius: 8px 16px 10px 6px / 14px 6px 12px 8px;
     background-color: var(--cl-neutral-600);
   }
+
   100% {
     border-radius: 4px 12px 6px 8px / 8px 4px 10px 14px;
     background-color: var(--cl-neutral-400);
@@ -347,11 +369,9 @@
 }
 
 .features-3-line-anim {
-  background: linear-gradient(
-    90deg,
-    var(--cl-neutral-300),
-    rgb(var(--color-dye-pink))
-  );
+  background: linear-gradient(90deg,
+      var(--cl-neutral-300),
+      rgb(var(--color-dye-pink)));
   background-size: 200% 200%;
   animation: features-3-line-anim 2s linear infinite;
 }
@@ -360,6 +380,7 @@
   0% {
     background-position: 200%;
   }
+
   80% {
     background-position: 0%;
   }
@@ -391,14 +412,17 @@
     bottom: -80px;
     opacity: 0;
   }
+
   60% {
     bottom: 0;
     opacity: 1;
   }
+
   80% {
     bottom: 0;
     opacity: 1;
   }
+
   100% {
     bottom: 0;
     opacity: 0;
@@ -406,7 +430,7 @@
 }
 
 .features-card-4 {
-  @media screen and (width >= $xl) {
+  @media screen and (width >=$xl) {
     grid-column: span 3 / span 3;
   }
 
@@ -462,17 +486,21 @@
   0% {
     left: 0;
   }
+
   50% {
     left: 50%;
     background-color: var(--cl-neutral-500);
     transform: translateX(0);
   }
+
   51% {
     background-color: rgb(var(--color-dye-blue));
   }
+
   95% {
     opacity: 1;
   }
+
   100% {
     left: 100%;
     background-color: rgb(var(--color-dye-blue));
@@ -482,11 +510,11 @@
 }
 
 .features-card-5 {
-  @media screen and (width >= $sm) {
+  @media screen and (width >=$sm) {
     grid-column-start: 2;
   }
 
-  @media screen and (width >= $xl) {
+  @media screen and (width >=$xl) {
     grid-column: span 3 / span 3;
     grid-column-start: 4;
   }
@@ -530,43 +558,53 @@
   0% {
     left: 0;
   }
+
   10% {
     left: 50%;
     transform: translateX(-6px);
   }
+
   20% {
     left: 50%;
     transform: translateX(-6px);
   }
+
   30% {
     left: 50%;
     transform: translate(-6px, -20px);
   }
+
   40% {
     left: 50%;
     transform: translate(-26px, -20px);
   }
+
   50% {
     left: 50%;
     transform: translate(-26px, 20px);
   }
+
   60% {
     left: 50%;
     transform: translate(14px, 20px);
   }
+
   70% {
     left: 50%;
     transform: translate(14px, -20px);
   }
+
   80% {
     left: 50%;
     transform: translate(-6px, -20px);
   }
+
   90% {
     left: 50%;
     transform: translate(-6px, 0);
     opacity: 1;
   }
+
   100% {
     left: 50%;
     transform: translate(-6px, 0);
@@ -578,42 +616,52 @@
   0% {
     right: 0;
   }
+
   15% {
     right: 50%;
     transform: translateX(6px);
   }
+
   20% {
     right: 50%;
     transform: translateX(6px);
   }
+
   30% {
     right: 50%;
     transform: translate(6px, 20px);
   }
+
   40% {
     right: 50%;
     transform: translate(26px, 20px);
   }
+
   50% {
     right: 50%;
     transform: translate(26px, -20px);
   }
+
   60% {
     right: 50%;
     transform: translate(-14px, -20px);
   }
+
   70% {
     right: 50%;
     transform: translate(-14px, 20px);
   }
+
   80% {
     right: 50%;
     transform: translate(6px, 20px);
   }
+
   90% {
     right: 50%;
     transform: translate(6px, 0);
   }
+
   100% {
     right: 50%;
     transform: translate(6px, 0);

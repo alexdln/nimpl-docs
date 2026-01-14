@@ -6,13 +6,13 @@
   padding-bottom: 40px;
   margin-inline: auto;
 
-  @media screen and (width >= $sm) {
+  @media screen and (width >=$sm) {
     padding-top: 128px;
     padding-bottom: 128px;
     text-align: center;
   }
 
-  @media screen and (width >= $lg) {
+  @media screen and (width >=$lg) {
     padding-top: 240px;
     padding-bottom: 240px;
   }
@@ -23,7 +23,7 @@
   font-size: 32px;
   font-weight: 800;
 
-  @media screen and (width >= $lg) {
+  @media screen and (width >=$lg) {
     font-size: 60px;
   }
 }
@@ -32,7 +32,7 @@
   font-size: 20px;
   font-weight: 300;
 
-  @media screen and (width >= $lg) {
+  @media screen and (width >=$lg) {
     font-size: 24px;
   }
 }
@@ -51,7 +51,7 @@
   gap: 16px;
   font-weight: 600;
 
-  @media screen and (width >= $sm) {
+  @media screen and (width >=$sm) {
     grid-auto-flow: column;
     justify-content: center;
   }
@@ -65,7 +65,7 @@
   border-radius: 8px;
   text-decoration: none;
   border: 2px solid rgb(var(--color-dye-blue));
-  background: var(--cl-body);
+  background: var(--cl-neutral-50);
   color: inherit;
   padding: 12px 32px;
 
@@ -94,7 +94,7 @@
   left: 50%;
   transform: translate(-50%, -50%);
 
-  @media screen and (width >= $sm) {
+  @media screen and (width >=$sm) {
     display: block;
   }
 }

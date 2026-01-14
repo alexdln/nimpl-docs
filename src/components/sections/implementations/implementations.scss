@@ -4,12 +4,12 @@
   margin-top: 40px;
   margin-bottom: 40px;
 
-  @media screen and (width >= $sm) {
+  @media screen and (width >=$sm) {
     margin-top: 92px;
     margin-bottom: 92px;
   }
 
-  @media screen and (width >= $lg) {
+  @media screen and (width >=$lg) {
     margin-top: 128px;
     margin-bottom: 128px;
   }
@@ -21,14 +21,14 @@
 
 .implementations-list {
   display: grid;
-  gap: 32px;
+  gap: 24px;
   margin-top: 32px;
 
-  @media screen and (width >= $sm) {
+  @media screen and (width >=$sm) {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  @media screen and (width >= $lg) {
+  @media screen and (width >=$lg) {
     grid-template-columns: repeat(3, 1fr);
   }
 }
@@ -36,7 +36,7 @@
 .implementations-card {
   display: block;
   position: relative;
-  background-color: var(--cl-neutral-50);
+  background-color: color-mix(in oklab, var(--cl-neutral-50) 85%, transparent);
   border-radius: 12px;
   padding: 12px 32px;
   text-decoration: none;
@@ -55,19 +55,17 @@
     width: calc(100% + 4px);
     height: calc(100% + 4px);
     display: block;
-    background: linear-gradient(
-      45deg,
-      var(--first-color),
-      var(--second-color),
-      var(--first-color)
-    );
+    background: linear-gradient(45deg,
+        var(--first-color),
+        var(--second-color),
+        var(--first-color));
     background-size: 200% 100%;
     position: absolute;
     left: -2px;
     top: -2px;
     z-index: -1;
     border-radius: 0.85rem;
-    opacity: 0.3;
+    opacity: 0.5;
     animation: border-anim 5s infinite;
     transition: opacity 0.3s;
   }
@@ -81,9 +79,11 @@
   0% {
     background-position-x: 0;
   }
+
   50% {
     background-position-x: 100%;
   }
+
   100% {
     background-position-x: 0;
   }

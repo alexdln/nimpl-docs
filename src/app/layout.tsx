@@ -5,7 +5,6 @@ import { Header, Footer, RobinProvider, KeylinkToContent } from "robindoc";
 import { Analytics } from "@vercel/analytics/react";
 
 import { Logo } from "../components/ui/logo";
-import { theme } from "./theme";
 
 import "robindoc/lib/styles.css";
 import "./globals.css";
@@ -29,7 +28,7 @@ export default function RootLayout({
     return (
         <html lang="en" suppressHydrationWarning className="r-root">
             <body className={inter.className}>
-                <RobinProvider theme={theme} component={Fragment}>
+                <RobinProvider component={Fragment}>
                     <KeylinkToContent />
                     <Header
                         links={[

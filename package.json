@@ -10,7 +10,9 @@
     "prepare": "husky"
   },
   "lint-staged": {
-    "*.{ts,tsx,js,jsx}": ["eslint"]
+    "*.{ts,tsx,js,jsx}": [
+      "eslint"
+    ]
   },
   "dependencies": {
     "@vercel/analytics": "1.6.1",
@@ -19,7 +21,7 @@
     "next": "16.1.1",
     "react": "19.2.3",
     "react-dom": "19.2.3",
-    "robindoc": "3.3.2",
+    "robindoc": "3.4.0",
     "sass": "1.97.1",
     "top-layer": "2.0.1"
   },
