@@ -27,8 +27,8 @@ importers:
         specifier: 19.2.3
         version: 19.2.3(react@19.2.3)
       robindoc:
-        specifier: 3.4.0
-        version: 3.4.0(@types/react@19.2.7)(next@16.1.1(@babel/core@7.28.5)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(sass@1.97.1))(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
+        specifier: 3.5.1
+        version: 3.5.1(@types/react@19.2.7)(next@16.1.1(@babel/core@7.28.5)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(sass@1.97.1))(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
       sass:
         specifier: 1.97.1
         version: 1.97.1
@@ -1911,8 +1911,8 @@ packages:
     resolution: {integrity: sha512-g6QUff04oZpHs0eG5p83rFLhHeV00ug/Yf9nZM6fLeUrPguBTkTQOdpAWWspMh55TZfVQDPaN3NQJfbVRAxdIw==}
     engines: {iojs: '>=1.0.0', node: '>=0.10.0'}
 
-  robindoc@3.4.0:
-    resolution: {integrity: sha512-caRqq4echChS37plFrjxbmGA5w1viGGUqkurfBKr9ILB0m+pnKlgdSyxEiFpi4DLCjvHC+x0dtvpNIjRwrrm2g==}
+  robindoc@3.5.1:
+    resolution: {integrity: sha512-A9+rnb5JP1IIx4KrfR8K7U/hXcohaxW38EkcVF0MsUjhE/OjNAwJQkwYzRxPI0X1Y7JbxCyjMRkJyAW2RhBolg==}
     peerDependencies:
       next: '>= 13.0.0'
       react: '>= 18.3.0'
@@ -4201,7 +4201,7 @@ snapshots:
 
   reusify@1.1.0: {}
 
-  robindoc@3.4.0(@types/react@19.2.7)(next@16.1.1(@babel/core@7.28.5)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(sass@1.97.1))(react-dom@19.2.3(react@19.2.3))(react@19.2.3):
+  robindoc@3.5.1(@types/react@19.2.7)(next@16.1.1(@babel/core@7.28.5)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(sass@1.97.1))(react-dom@19.2.3(react@19.2.3))(react@19.2.3):
     dependencies:
       clsx: 2.1.1
       dot-prop: 10.1.0
