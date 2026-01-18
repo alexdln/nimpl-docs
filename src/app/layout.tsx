@@ -5,6 +5,7 @@ import { Header, Footer, RobinProvider, KeylinkToContent } from "robindoc";
 import { Analytics } from "@vercel/analytics/react";
 
 import { Logo } from "../components/ui/logo";
+import { searchProvider } from "./search-provider";
 
 import "robindoc/lib/styles.css";
 import "./globals.css";
@@ -38,7 +39,7 @@ export default function RootLayout({
                         ]}
                         logo={<Logo />}
                         git="https://github.com/alexdln/nimpl-docs"
-                        searcher="/api/search"
+                        searcher={searchProvider}
                     />
                     {children}
                     <Footer copyright="© 2024 All rights reserved" />
