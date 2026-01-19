@@ -3,6 +3,7 @@ import { Fragment } from "react";
 import { Inter } from "next/font/google";
 import { Header, Footer, RobinProvider, KeylinkToContent } from "robindoc";
 import { Analytics } from "@vercel/analytics/react";
+import { NavigationProvider } from "@robindoc/next";
 
 import { Logo } from "../components/ui/logo";
 import { searchProvider } from "./search-provider";
@@ -30,19 +31,21 @@ export default function RootLayout({
         <html lang="en" suppressHydrationWarning className="r-root">
             <body className={inter.className}>
                 <RobinProvider component={Fragment}>
-                    <KeylinkToContent />
-                    <Header
-                        links={[
-                            { href: "/docs", title: "Docs" },
-                            { href: "/blog", title: "Blog" },
-                            { href: "/contribution", title: "Contribution" },
-                        ]}
-                        logo={<Logo />}
-                        git="https://github.com/alexdln/nimpl-docs"
-                        searcher={searchProvider}
-                    />
-                    {children}
-                    <Footer copyright="© 2024 All rights reserved" />
+                    <NavigationProvider>
+                        <KeylinkToContent />
+                        <Header
+                            links={[
+                                { href: "/docs", title: "Docs" },
+                                { href: "/blog", title: "Blog" },
+                                { href: "/contribution", title: "Contribution" },
+                            ]}
+                            logo={<Logo />}
+                            git="https://github.com/alexdln/nimpl-docs"
+                            searcher={searchProvider}
+                        />
+                        {children}
+                        <Footer copyright="© 2026 All rights reserved" />
+                    </NavigationProvider>
                 </RobinProvider>
                 <Analytics />
             </body>
