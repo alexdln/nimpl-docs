@@ -44,7 +44,7 @@ export default function RootLayout({
                             searcher={searchProvider}
                         />
                         {children}
-                        <Footer copyright="© 2024 All rights reserved" />
+                        <Footer copyright="© 2026 All rights reserved" />
                     </NavigationProvider>
                 </RobinProvider>
                 <Analytics />
