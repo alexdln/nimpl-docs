@@ -16,15 +16,15 @@
     ]
   },
   "dependencies": {
-    "@robindoc/minisearch": "3.6.1",
-    "@robindoc/next": "3.6.1",
+    "@robindoc/minisearch": "3.7.1",
+    "@robindoc/next": "3.7.1",
     "@vercel/analytics": "1.6.1",
     "glob": "13.0.0",
     "match-sorter": "8.2.0",
     "next": "16.1.1",
     "react": "19.2.3",
     "react-dom": "19.2.3",
-    "robindoc": "3.6.1",
+    "robindoc": "3.7.1",
     "sass": "1.97.1",
     "top-layer": "2.0.1"
   },
