@@ -21,20 +21,6 @@ export const Implementations = () => (
                         <h3>@nimpl/context</h3>
                         <p>Server contexts for RSC without switching to SSR</p>
                     </Link>
-                    <Link href="/docs/contection" className="implementations-card">
-                        <h3>contection</h3>
-                        <p>
-                            A state management library that extends React Context API with fine-grained subscriptions
-                            and computed values.
-                        </p>
-                    </Link>
-                    <Link href="/docs/top-layer" className="implementations-card">
-                        <h3>top-layer</h3>
-                        <p>
-                            Top Layer is a library for working with dialogs and toasts in a separate isolated layer
-                            without application rerenders
-                        </p>
-                    </Link>
                     <Link href="/docs/path-parser" className="implementations-card">
                         <h3>@nimpl/path-parser</h3>
                         <p>Helper for next.js-styled pathname parsing to get dynamic params</p>
@@ -42,7 +28,7 @@ export const Implementations = () => (
                 </div>
             </div>
             <div className="implementations-section">
-                <h2>Configuration Implementations</h2>
+                <h2>Additional Implementations</h2>
                 <div className="implementations-list">
                     <Link href="/docs/classnames-minifier" className="implementations-card">
                         <h3>@nimpl/classnames-minifier</h3>
@@ -83,25 +69,31 @@ export const Implementations = () => (
                 </div>
             </div>
             <div className="implementations-section">
-                <h2>Tools</h2>
+                <h2>See also</h2>
                 <div className="implementations-list">
                     <a
-                        href="https://inio.nimpl.dev/"
+                        href="https://contection.dev/"
                         className="implementations-card"
                         target="_blank"
                         rel="noopener noreferrer"
                     >
-                        <h3>@nimpl/inio</h3>
-                        <p>Utility for editing a group of JSON files. Plug-and-Play solution - just Run and Edit!</p>
+                        <h3>contection</h3>
+                        <p>
+                            A state management library that extends React Context API with fine-grained subscriptions
+                            and computed values.
+                        </p>
                     </a>
                     <a
-                        href="https://www.npmjs.com/package/@nimpl/versioner"
+                        href="https://robindoc.com/"
                         className="implementations-card"
                         target="_blank"
                         rel="noopener noreferrer"
                     >
-                        <h3>@nimpl/versioner</h3>
-                        <p>A package for versioning your next.js application (experiment)</p>
+                        <h3>robindoc</h3>
+                        <p>
+                            Robindoc is a framework for automatically creating documentation websites based on markdown
+                            files, built on React Server Components.
+                        </p>
                     </a>
                 </div>
             </div>
