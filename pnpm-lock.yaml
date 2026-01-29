@@ -9,11 +9,11 @@ importers:
   .:
     dependencies:
       '@robindoc/minisearch':
-        specifier: 3.7.5
-        version: 3.7.5(tsx@4.21.0)
+        specifier: 3.7.7
+        version: 3.7.7(tsx@4.21.0)
       '@robindoc/next':
-        specifier: 3.7.5
-        version: 3.7.5(next@16.1.6(@babel/core@7.28.6)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(sass@1.97.3))(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(robindoc@3.7.5(@types/react@19.2.10)(react-dom@19.2.4(react@19.2.4))(react@19.2.4))
+        specifier: 3.7.7
+        version: 3.7.7(next@16.1.6(@babel/core@7.28.6)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(sass@1.97.3))(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(robindoc@3.7.7(@types/react@19.2.10)(react-dom@19.2.4(react@19.2.4))(react@19.2.4))
       '@vercel/analytics':
         specifier: 1.6.1
         version: 1.6.1(next@16.1.6(@babel/core@7.28.6)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(sass@1.97.3))(react@19.2.4)
@@ -33,8 +33,8 @@ importers:
         specifier: 19.2.4
         version: 19.2.4(react@19.2.4)
       robindoc:
-        specifier: 3.7.5
-        version: 3.7.5(@types/react@19.2.10)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
+        specifier: 3.7.7
+        version: 3.7.7(@types/react@19.2.10)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
       sass:
         specifier: 1.97.3
         version: 1.97.3
@@ -694,8 +694,8 @@ packages:
     resolution: {integrity: sha512-QNqXyfVS2wm9hweSYD2O7F0G06uurj9kZ96TRQE5Y9hU7+tgdZwIkbAKc5Ocy1HxEY2kuDQa6cQ1WRs/O5LFKA==}
     engines: {node: ^12.20.0 || ^14.18.0 || >=16.0.0}
 
-  '@robindoc/minisearch@3.7.5':
-    resolution: {integrity: sha512-+8KQp/cEstNlTeMkcZR9nLN+bxrZ7OH7Wepzpo7Tpj8QkMfCUzj8+y+yWr3Z+Ab4NnxfOk7nTCXPG0RKfke/9A==}
+  '@robindoc/minisearch@3.7.7':
+    resolution: {integrity: sha512-xkjF3GWo//nmWuHfqnBa8tVRRJxgOg55yj/S62ZO31FGfrMyRSBj4KeQenK1do7uBhanCROQo8/9flRWIMdTqw==}
     hasBin: true
     peerDependencies:
       tsx: '>= 1.0.0'
@@ -703,8 +703,8 @@ packages:
       tsx:
         optional: true
 
-  '@robindoc/next@3.7.5':
-    resolution: {integrity: sha512-7YLkzcEPB9ajfIDdLjOGZRMbajRcHHyBhaVDCkWQjPsGdg3GGjnofBapWv6JqsQFtGI71VZMkVcYwhV8X7us0w==}
+  '@robindoc/next@3.7.7':
+    resolution: {integrity: sha512-43W6gaQLgoWskMoMtK4Kt2DTANHgtHlgLIp8vhooA4ECIP4n3b5haGJ0Wqluk3NxGSkZQ/Arhxz0Zi36BDXmDg==}
     peerDependencies:
       next: '>= 14.0.0'
       react: '>= 18.3.0'
@@ -1222,6 +1222,10 @@ packages:
     resolution: {integrity: sha512-MVUtAugQMOff5RnBy2d9N31iG0lNwg1qAoAOn7pOK5wf94WIaE3My2p3uwTQuvS2AcqchkcR3bHByjaM0mmi7Q==}
     engines: {node: '>=20'}
 
+  dotenv@17.2.3:
+    resolution: {integrity: sha512-JVUnt+DUIzu87TABbhPmNfVdBDt18BLOWjMUFJMSi/Qqg7NTYtabbvSNJGOJ7afbRuv9D/lngizHtP7QyLQ+9w==}
+    engines: {node: '>=12'}
+
   dunder-proto@1.0.1:
     resolution: {integrity: sha512-KIN/nDJBQRcXw0MLVhZE9iQHmG68qAVIBg9CqmUYjmQIhgij9U5MFvrqkUL5FbtyyzZuOeOt0zdeRe4UY7ct+A==}
     engines: {node: '>= 0.4'}
@@ -1236,8 +1240,8 @@ packages:
     resolution: {integrity: sha512-V0hjH4dGPh9Ao5p0MoRY6BVqtwCjhz6vI5LT8AJ55H+4g9/4vbHx1I54fS0XuclLhDHArPQCiMjDxjaL8fPxhw==}
     engines: {node: '>=0.12'}
 
-  entities@6.0.1:
-    resolution: {integrity: sha512-aN97NXWF6AWBTahfVOIrB/NShkzi5H7F9r1s9mD3cDj4Ko5f2qhhVoYMibXF7GlLveb/D2ioWay8lxI97Ven3g==}
+  entities@7.0.1:
+    resolution: {integrity: sha512-TWrgLOFUQTH994YUyl1yT4uyavY5nNB5muff+RtWaqNVCAK408b5ZnnbNAUEWLTCpum9w6arT70i1XdQ4UeOPA==}
     engines: {node: '>=0.12'}
 
   es-abstract@1.24.1:
@@ -1602,11 +1606,11 @@ packages:
   hermes-parser@0.25.1:
     resolution: {integrity: sha512-6pEjquH3rqaI6cYAXYPcz9MS4rY6R4ngRgrgfDshRptUZIc3lw0MCIJIGDj9++mfySOuPTHB4nrSW99BCvOPIA==}
 
-  html-dom-parser@5.1.2:
-    resolution: {integrity: sha512-9nD3Rj3/FuQt83AgIa1Y3ruzspwFFA54AJbQnohXN+K6fL1/bhcDQJJY5Ne4L4A163ADQFVESd/0TLyNoV0mfg==}
+  html-dom-parser@5.1.4:
+    resolution: {integrity: sha512-UGjp7y8jSrDU2RdN2J9FDOo3X+WBu+LkS/I3TjjFW020ocZWjPvave+RKk1zeuY2sUWy5fh6zHgXHthzDGlFNQ==}
 
-  html-react-parser@5.2.11:
-    resolution: {integrity: sha512-WnSQVn/D1UTj64nSz5y8MriL+MrbsZH80Ytr1oqKqs8DGZnphWY1R1pl3t7TY3rpqTSu+FHA21P80lrsmrdNBA==}
+  html-react-parser@5.2.14:
+    resolution: {integrity: sha512-yiSZHuJq6LwQc450IhpLApug8bKTpHv5oVsClpVS1jEDepifXYcJu0Sw0r7pqEl89q/ZpO0nth6LEDWtz5n6qg==}
     peerDependencies:
       '@types/react': 0.14 || 15 || 16 || 17 || 18 || 19
       react: 0.14 || 15 || 16 || 17 || 18 || 19
@@ -1617,8 +1621,8 @@ packages:
   html-void-elements@3.0.0:
     resolution: {integrity: sha512-bEqo66MRXsUGxWHV5IP0PUiAWwoEjba4VCzg0LjFJBpchPaTfyfCKTG6bc5F8ucKec3q5y6qOdGyYTSBEvhCrg==}
 
-  htmlparser2@10.0.0:
-    resolution: {integrity: sha512-TwAZM+zE5Tq3lrEHvOlvwgj1XLWQCtaaibSN11Q+gGBAS7Y1uZSWwXXRe4iF6OXnaq1riyQAPFOBtYc77Mxq0g==}
+  htmlparser2@10.1.0:
+    resolution: {integrity: sha512-VTZkM9GWRAtEpveh7MSF6SjjrpNVNNVJfFup7xTY3UpFtm67foy9HDVXneLtFVt4pMz5kZtgNcvCniNFb1hlEQ==}
 
   husky@9.1.7:
     resolution: {integrity: sha512-5gs5ytaNjBrh5Ow3zrvdUUY+0VxIuWVL4i9irt6friV+BqdCfmV11CQTWMiBYWHbXhco+J1kHfTOUkePhCDvMA==}
@@ -2215,8 +2219,8 @@ packages:
     resolution: {integrity: sha512-g6QUff04oZpHs0eG5p83rFLhHeV00ug/Yf9nZM6fLeUrPguBTkTQOdpAWWspMh55TZfVQDPaN3NQJfbVRAxdIw==}
     engines: {iojs: '>=1.0.0', node: '>=0.10.0'}
 
-  robindoc@3.7.5:
-    resolution: {integrity: sha512-4oGMcN5vlBF91P8Y6tcAldKAkZ4RCbhu0c2KTG/mAUjbEwWsRJKnay84yq4UeoMQHi+qxSzDr00HZVc7kDLbaw==}
+  robindoc@3.7.7:
+    resolution: {integrity: sha512-NlqQh48kzjk9KTDPefpCUteFIgYY+6zJtYptcgGKaCJoh+ktm97jAOdCQCgLzJYIUngvey0oy/K2sjbcIzS5DQ==}
     peerDependencies:
       react: '>= 18.3.0'
       react-dom: '>= 18.3.0'
@@ -3035,20 +3039,21 @@ snapshots:
 
   '@pkgr/core@0.2.9': {}
 
-  '@robindoc/minisearch@3.7.5(tsx@4.21.0)':
+  '@robindoc/minisearch@3.7.7(tsx@4.21.0)':
     dependencies:
+      dotenv: 17.2.3
       gray-matter: 4.0.3
       marked: 17.0.1
       minisearch: 7.2.0
     optionalDependencies:
       tsx: 4.21.0
 
-  '@robindoc/next@3.7.5(next@16.1.6(@babel/core@7.28.6)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(sass@1.97.3))(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(robindoc@3.7.5(@types/react@19.2.10)(react-dom@19.2.4(react@19.2.4))(react@19.2.4))':
+  '@robindoc/next@3.7.7(next@16.1.6(@babel/core@7.28.6)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(sass@1.97.3))(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(robindoc@3.7.7(@types/react@19.2.10)(react-dom@19.2.4(react@19.2.4))(react@19.2.4))':
     dependencies:
       next: 16.1.6(@babel/core@7.28.6)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(sass@1.97.3)
       react: 19.2.4
       react-dom: 19.2.4(react@19.2.4)
-      robindoc: 3.7.5(@types/react@19.2.10)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
+      robindoc: 3.7.7(@types/react@19.2.10)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
 
   '@rtsao/scc@1.1.0': {}
 
@@ -3574,6 +3579,8 @@ snapshots:
     dependencies:
       type-fest: 5.4.2
 
+  dotenv@17.2.3: {}
+
   dunder-proto@1.0.1:
     dependencies:
       call-bind-apply-helpers: 1.0.2
@@ -3586,7 +3593,7 @@ snapshots:
 
   entities@4.5.0: {}
 
-  entities@6.0.1: {}
+  entities@7.0.1: {}
 
   es-abstract@1.24.1:
     dependencies:
@@ -4142,15 +4149,15 @@ snapshots:
     dependencies:
       hermes-estree: 0.25.1
 
-  html-dom-parser@5.1.2:
+  html-dom-parser@5.1.4:
     dependencies:
       domhandler: 5.0.3
-      htmlparser2: 10.0.0
+      htmlparser2: 10.1.0
 
-  html-react-parser@5.2.11(@types/react@19.2.10)(react@19.2.4):
+  html-react-parser@5.2.14(@types/react@19.2.10)(react@19.2.4):
     dependencies:
       domhandler: 5.0.3
-      html-dom-parser: 5.1.2
+      html-dom-parser: 5.1.4
       react: 19.2.4
       react-property: 2.0.2
       style-to-js: 1.1.21
@@ -4159,12 +4166,12 @@ snapshots:
 
   html-void-elements@3.0.0: {}
 
-  htmlparser2@10.0.0:
+  htmlparser2@10.1.0:
     dependencies:
       domelementtype: 2.3.0
       domhandler: 5.0.3
       domutils: 3.2.2
-      entities: 6.0.1
+      entities: 7.0.1
 
   husky@9.1.7: {}
 
@@ -4891,14 +4898,14 @@ snapshots:
 
   reusify@1.1.0: {}
 
-  robindoc@3.7.5(@types/react@19.2.10)(react-dom@19.2.4(react@19.2.4))(react@19.2.4):
+  robindoc@3.7.7(@types/react@19.2.10)(react-dom@19.2.4(react@19.2.4))(react@19.2.4):
     dependencies:
       clsx: 2.1.1
       dot-prop: 10.1.0
       github-slugger: 2.0.0
       gray-matter: 4.0.3
       hast-util-to-jsx-runtime: 2.3.6
-      html-react-parser: 5.2.11(@types/react@19.2.10)(react@19.2.4)
+      html-react-parser: 5.2.14(@types/react@19.2.10)(react@19.2.4)
       marked: 17.0.1
       react: 19.2.4
       react-dom: 19.2.4(react@19.2.4)
