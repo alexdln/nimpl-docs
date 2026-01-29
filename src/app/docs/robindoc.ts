@@ -34,20 +34,6 @@ export const { Page, Sidebar, getStaticParams, getMetadata, getPageData } = init
                 href: "/context",
             },
             {
-                title: "Top Layer",
-                href: "/top-layer",
-                configuration: {
-                    sourceRoot: "https://github.com/alexdln/top-layer/blob/main/README.md",
-                },
-            },
-            {
-                title: "Contection",
-                href: "/contection",
-                configuration: {
-                    sourceRoot: "https://github.com/alexdln/contection/blob/main/README.md",
-                },
-            },
-            {
                 title: "Path Parser",
                 href: "/path-parser",
             },
@@ -92,5 +78,6 @@ export const { Page, Sidebar, getStaticParams, getMetadata, getPageData } = init
     {
         processError: notFound,
         matcher: ["/(?!.*\\..+).*"],
+        cache: true,
     },
 );

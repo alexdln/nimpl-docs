@@ -9,11 +9,11 @@ importers:
   .:
     dependencies:
       '@robindoc/minisearch':
-        specifier: 3.7.7
-        version: 3.7.7(tsx@4.21.0)
+        specifier: 3.7.9
+        version: 3.7.9(tsx@4.21.0)
       '@robindoc/next':
-        specifier: 3.7.7
-        version: 3.7.7(next@16.1.6(@babel/core@7.28.6)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(sass@1.97.3))(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(robindoc@3.7.7(@types/react@19.2.10)(react-dom@19.2.4(react@19.2.4))(react@19.2.4))
+        specifier: 3.7.9
+        version: 3.7.9(next@16.1.6(@babel/core@7.28.6)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(sass@1.97.3))(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(robindoc@3.7.9(@types/react@19.2.10)(react-dom@19.2.4(react@19.2.4))(react@19.2.4))
       '@vercel/analytics':
         specifier: 1.6.1
         version: 1.6.1(next@16.1.6(@babel/core@7.28.6)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(sass@1.97.3))(react@19.2.4)
@@ -33,8 +33,8 @@ importers:
         specifier: 19.2.4
         version: 19.2.4(react@19.2.4)
       robindoc:
-        specifier: 3.7.7
-        version: 3.7.7(@types/react@19.2.10)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
+        specifier: 3.7.9
+        version: 3.7.9(@types/react@19.2.10)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
       sass:
         specifier: 1.97.3
         version: 1.97.3
@@ -694,8 +694,8 @@ packages:
     resolution: {integrity: sha512-QNqXyfVS2wm9hweSYD2O7F0G06uurj9kZ96TRQE5Y9hU7+tgdZwIkbAKc5Ocy1HxEY2kuDQa6cQ1WRs/O5LFKA==}
     engines: {node: ^12.20.0 || ^14.18.0 || >=16.0.0}
 
-  '@robindoc/minisearch@3.7.7':
-    resolution: {integrity: sha512-xkjF3GWo//nmWuHfqnBa8tVRRJxgOg55yj/S62ZO31FGfrMyRSBj4KeQenK1do7uBhanCROQo8/9flRWIMdTqw==}
+  '@robindoc/minisearch@3.7.9':
+    resolution: {integrity: sha512-seyNazIv3T18f70qfvQ5YJ8Bgp2Db4srT0dc6TXlh5ySQc34DBayCm8hBjNnE5MoDg+pWN5p6at1ebAqa05FQw==}
     hasBin: true
     peerDependencies:
       tsx: '>= 1.0.0'
@@ -703,8 +703,8 @@ packages:
       tsx:
         optional: true
 
-  '@robindoc/next@3.7.7':
-    resolution: {integrity: sha512-43W6gaQLgoWskMoMtK4Kt2DTANHgtHlgLIp8vhooA4ECIP4n3b5haGJ0Wqluk3NxGSkZQ/Arhxz0Zi36BDXmDg==}
+  '@robindoc/next@3.7.9':
+    resolution: {integrity: sha512-uE/RQlBNb0HR9EFmgudJOBL46KSfRsbf3jpREgNzBCaPJODl+8TtHfPe+UHrvlgD3Xqo1XNrVomZRCgwR60msA==}
     peerDependencies:
       next: '>= 14.0.0'
       react: '>= 18.3.0'
@@ -2219,8 +2219,8 @@ packages:
     resolution: {integrity: sha512-g6QUff04oZpHs0eG5p83rFLhHeV00ug/Yf9nZM6fLeUrPguBTkTQOdpAWWspMh55TZfVQDPaN3NQJfbVRAxdIw==}
     engines: {iojs: '>=1.0.0', node: '>=0.10.0'}
 
-  robindoc@3.7.7:
-    resolution: {integrity: sha512-NlqQh48kzjk9KTDPefpCUteFIgYY+6zJtYptcgGKaCJoh+ktm97jAOdCQCgLzJYIUngvey0oy/K2sjbcIzS5DQ==}
+  robindoc@3.7.9:
+    resolution: {integrity: sha512-3zP894pGIikY1oUJAMhq8CqzDwdPVkliPbenjoZmIMfCTKczYDLt8RqCrqDLYDlvfCRUq4cYeNl48zwS9b7p7g==}
     peerDependencies:
       react: '>= 18.3.0'
       react-dom: '>= 18.3.0'
@@ -3039,7 +3039,7 @@ snapshots:
 
   '@pkgr/core@0.2.9': {}
 
-  '@robindoc/minisearch@3.7.7(tsx@4.21.0)':
+  '@robindoc/minisearch@3.7.9(tsx@4.21.0)':
     dependencies:
       dotenv: 17.2.3
       gray-matter: 4.0.3
@@ -3048,12 +3048,12 @@ snapshots:
     optionalDependencies:
       tsx: 4.21.0
 
-  '@robindoc/next@3.7.7(next@16.1.6(@babel/core@7.28.6)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(sass@1.97.3))(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(robindoc@3.7.7(@types/react@19.2.10)(react-dom@19.2.4(react@19.2.4))(react@19.2.4))':
+  '@robindoc/next@3.7.9(next@16.1.6(@babel/core@7.28.6)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(sass@1.97.3))(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(robindoc@3.7.9(@types/react@19.2.10)(react-dom@19.2.4(react@19.2.4))(react@19.2.4))':
     dependencies:
       next: 16.1.6(@babel/core@7.28.6)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(sass@1.97.3)
       react: 19.2.4
       react-dom: 19.2.4(react@19.2.4)
-      robindoc: 3.7.7(@types/react@19.2.10)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
+      robindoc: 3.7.9(@types/react@19.2.10)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
 
   '@rtsao/scc@1.1.0': {}
 
@@ -4898,7 +4898,7 @@ snapshots:
 
   reusify@1.1.0: {}
 
-  robindoc@3.7.7(@types/react@19.2.10)(react-dom@19.2.4(react@19.2.4))(react@19.2.4):
+  robindoc@3.7.9(@types/react@19.2.10)(react-dom@19.2.4(react@19.2.4))(react@19.2.4):
     dependencies:
       clsx: 2.1.1
       dot-prop: 10.1.0
