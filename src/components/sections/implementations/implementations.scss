@@ -15,76 +15,170 @@
   }
 }
 
-.implementations-section {
-  margin-top: 60px;
+.implementations-group {
+  & + & {
+    margin-top: 64px;
+
+    @media screen and (width >=$sm) {
+      margin-top: 80px;
+    }
+
+    @media screen and (width >=$lg) {
+      margin-top: 96px;
+    }
+  }
+}
+
+.implementations-heading {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+  color: var(--cl-neutral-950);
+
+  @media screen and (width >=$sm) {
+    font-size: 26px;
+  }
+
+  @media screen and (width >=$lg) {
+    font-size: 28px;
+  }
 }
 
 .implementations-list {
   display: grid;
-  gap: 24px;
-  margin-top: 32px;
+  gap: 16px;
+  margin-top: 24px;
 
   @media screen and (width >=$sm) {
     grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin-top: 28px;
   }
 
   @media screen and (width >=$lg) {
     grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 32px;
   }
 }
 
 .implementations-card {
-  display: block;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
   position: relative;
-  background-color: color-mix(in oklab, var(--cl-neutral-50) 85%, transparent);
+  min-height: 100%;
+  padding: 24px 28px;
+  background-color: color-mix(in oklab, var(--cl-neutral-100) 50%, transparent);
+  border: 1px solid color-mix(in oklab, var(--cl-neutral-200) 80%, transparent);
   border-radius: 12px;
-  padding: 12px 32px;
   text-decoration: none;
   color: inherit;
+  transition:
+    border-color 0.25s ease,
+    background-color 0.25s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
 
-  --first-color: rgb(var(--color-dye-pink));
-  --second-color: var(--cl-neutral-200);
+  @media screen and (width >=$sm) {
+    padding: 28px 32px;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: linear-gradient(
+      135deg,
+      rgba(var(--color-dye-pink) / 0.08),
+      transparent 42%,
+      rgba(var(--color-dye-blue) / 0.08)
+    );
+    opacity: 0;
+    transition: opacity 0.25s ease;
+    pointer-events: none;
+  }
 
   &:hover {
-    --first-color: rgb(var(--color-dye-pink));
-    --second-color: rgb(var(--color-dye-blue));
+    border-color: color-mix(in oklab, var(--cl-neutral-300) 70%, rgb(var(--color-dye-blue)));
+    background-color: color-mix(in oklab, var(--cl-neutral-100) 70%, transparent);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 32px -24px rgba(var(--color-dye-blue) / 0.45);
+
+    &::before {
+      opacity: 1;
+    }
+
+    .implementations-card-title {
+      color: var(--cl-neutral-950);
+    }
+
+    .implementations-card-desc {
+      color: var(--cl-neutral-700);
+    }
   }
 
-  &::after {
-    content: "";
-    width: calc(100% + 4px);
-    height: calc(100% + 4px);
-    display: block;
-    background: linear-gradient(45deg,
-        var(--first-color),
-        var(--second-color),
-        var(--first-color));
-    background-size: 200% 100%;
-    position: absolute;
-    left: -2px;
-    top: -2px;
-    z-index: -1;
-    border-radius: 0.85rem;
-    opacity: 0.5;
-    animation: border-anim 5s infinite;
-    transition: opacity 0.3s;
-  }
-
-  &:hover::after {
-    opacity: 1;
+  &:focus-visible {
+    outline: 2px solid rgb(var(--color-dye-blue));
+    outline-offset: 2px;
   }
 }
 
-@keyframes border-anim {
-  0% {
-    background-position-x: 0;
+.implementations-card-title {
+  position: relative;
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.35;
+  color: var(--cl-neutral-900);
+  transition: color 0.25s ease;
+
+  @media screen and (width >=$sm) {
+    font-size: 17px;
+  }
+}
+
+.implementations-card-desc {
+  position: relative;
+  margin: 0;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.55;
+  color: var(--cl-neutral-600);
+  transition: color 0.25s ease;
+
+  @media screen and (width >=$sm) {
+    font-size: 15px;
+  }
+}
+
+.implementations-card_external {
+  .implementations-card-title {
+    padding-right: 20px;
+
+    &::after {
+      content: "↗";
+      position: absolute;
+      top: 0;
+      right: 0;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--cl-neutral-500);
+      opacity: 0.7;
+      transition:
+        opacity 0.25s ease,
+        color 0.25s ease,
+        transform 0.25s ease;
+    }
   }
 
-  50% {
-    background-position-x: 100%;
-  }
-
-  100% {
-    background-position-x: 0;
+  &:hover .implementations-card-title::after {
+    color: rgb(var(--color-dye-blue));
+    opacity: 1;
+    transform: translate(1px, -1px);
   }
 }

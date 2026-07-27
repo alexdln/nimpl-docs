@@ -15,38 +15,152 @@
   }
 }
 
-.about-bg-anim {
-  max-width: 768px;
+.about-layout {
   position: relative;
-  overflow-x: hidden;
+  display: grid;
+  gap: 28px;
 
-  &::before {
-    content: "";
-    width: 200%;
-    height: 100%;
-    position: absolute;
-    background: linear-gradient(100deg,
-        rgba(var(--color-dye-blue) / 0),
-        rgba(var(--color-dye-pink) / 0.2) 20%,
-        rgba(var(--color-dye-blue) / 0.2) 80%,
-        rgba(var(--color-dye-pink) / 0));
-    animation: about-border-anim 10s infinite;
-    z-index: -1;
+  @media screen and (width >=$sm) {
+    gap: 36px;
+  }
+
+  @media screen and (width >=$lg) {
+    grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+    gap: 24px;
+    align-items: start;
   }
 }
 
-@keyframes about-border-anim {
-  0% {
-    transform: translateX(-100%);
+.about-manifesto {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  border: 1px solid color-mix(in oklab, var(--cl-neutral-200) 72%, transparent);
+  background:
+    radial-gradient(120% 120% at 20% 20%, rgba(var(--color-dye-pink) / 0.16), transparent 58%),
+    radial-gradient(100% 120% at 80% 100%, rgba(var(--color-dye-blue) / 0.14), transparent 55%),
+    color-mix(in oklab, var(--cl-neutral-100) 56%, transparent);
+  padding: 28px 24px;
+
+  @media screen and (width >=$sm) {
+    padding: 36px 32px;
   }
 
-  100% {
-    transform: translateX(100%);
+  @media screen and (width >=$lg) {
+    position: sticky;
+    top: calc(var(--r-header-height) + 24px);
+    min-height: 320px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 40px 34px;
+  }
+}
+
+.about-manifesto-label {
+  margin: 0 0 28px;
+  color: var(--cl-neutral-500);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.about-manifesto-text {
+  margin: 0;
+  max-width: 18ch;
+  font-size: 28px;
+  line-height: 1.18;
+  letter-spacing: -0.03em;
+  color: var(--cl-neutral-950);
+  font-weight: 700;
+
+  @media screen and (width >=$sm) {
+    font-size: 36px;
+  }
+}
+
+.about-sequence {
+  position: relative;
+  display: grid;
+  gap: 16px;
+
+  @media screen and (width >=$sm) {
+    gap: 20px;
+  }
+
+  @media screen and (width >=$lg) {
+    gap: 24px;
   }
 }
 
 .about-card {
-  background-color: var(--cl-neutral-50);
-  padding: 4px 0;
-  margin: 2px 0;
+  position: relative;
+  overflow: hidden;
+  padding: 24px;
+  border: 1px solid color-mix(in oklab, var(--cl-neutral-200) 80%, transparent);
+  border-radius: 12px;
+  background-color: color-mix(in oklab, var(--cl-neutral-100) 46%, transparent);
+
+  @media screen and (width >=$sm) {
+    padding: 30px 32px;
+  }
+
+  @media screen and (width >=$lg) {
+    padding: 34px 34px;
+  }
+}
+
+.about-heading {
+  margin: 0 0 14px;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.3;
+  color: var(--cl-neutral-950);
+
+  @media screen and (width >=$sm) {
+    margin-bottom: 16px;
+    font-size: 20px;
+  }
+}
+
+.about-text {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.65;
+  color: var(--cl-neutral-600);
+
+  @media screen and (width >=$sm) {
+    font-size: 15px;
+  }
+}
+
+.about-step {
+  display: inline-flex;
+  margin-bottom: 14px;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: 0.12em;
+  color: var(--cl-neutral-500);
+}
+
+.about-card_motivation {
+  background:
+    linear-gradient(120deg, rgba(var(--color-dye-blue) / 0.08), transparent 60%),
+    color-mix(in oklab, var(--cl-neutral-100) 46%, transparent);
+}
+
+.about-card_plans {
+  background:
+    linear-gradient(120deg, rgba(var(--color-dye-pink) / 0.08), transparent 60%),
+    color-mix(in oklab, var(--cl-neutral-100) 46%, transparent);
+}
+
+.about-card_additional {
+  background:
+    linear-gradient(160deg, rgba(var(--color-dye-blue) / 0.06), rgba(var(--color-dye-pink) / 0.06)),
+    color-mix(in oklab, var(--cl-neutral-100) 46%, transparent);
 }
